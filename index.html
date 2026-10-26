@@ -9,464 +9,685 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;padding:0;background:#E9ECF1;font-family:Barlow,system-ui,sans-serif;color:#0F1B33;-webkit-font-smoothing:antialiased}
-html[lang="ar"] body,html[lang="ar"] button,html[lang="ar"] [data-serif]{font-family:"IBM Plex Sans Arabic",Barlow,system-ui,sans-serif !important;letter-spacing:0 !important}
-html[lang="ar"] [data-latin-tight]{line-height:1.2 !important;letter-spacing:0 !important}
-html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important}
-html[lang="ar"] [data-latin]{letter-spacing:.14em !important;text-transform:uppercase !important}
+:root{--bg:#F6F4EF;--surface:#FFFFFF;--surface2:#F0EEE8;--ink:#0F1F38;--muted:#5A6577;--navy:#002856;--primary:#002856;--onPrimary:#FFFFFF;--action:#00AEAC;--onAction:#002856;--tealInk:#00807E;--soft:#E3F6F5;--line:#E2DED5;--track:#E2DED5;--coral:#E8704F;--coralSoft:#FCEDE8;--red:#C8363D;--badSoft:#FBE7E8;--amber:#B7791F;--warnSoft:#FDF3DF;--green:#17875E;--deep:#002856;--onDeep:#FFFFFF;--deepMuted:#B8C4D8;--deepAccent:#7FE0DE;--outer:#ECE9E2;--grey:#5A6577;--sheet:#FFFFFF;--segOn:#002856;--segOnFg:#FFFFFF;--shadow:0 1px 2px rgba(0,40,86,.06),0 10px 30px rgba(0,40,86,.08);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06152B;--surface:#0C2343;--surface2:#112B50;--ink:#EAF1FA;--muted:#9FB0C8;--navy:#EAF1FA;--primary:#FFFFFF;--onPrimary:#002856;--action:#22C7C4;--onAction:#03201F;--tealInk:#4FD9D6;--soft:#0E3A4A;--line:#1E3A63;--track:#1E3A63;--coralSoft:#3A2219;--red:#FF6B72;--badSoft:#3D1A22;--amber:#F0B44A;--warnSoft:#3A2E12;--green:#3CC48E;--deep:#112B50;--deepMuted:#B8C4D8;--outer:#030C1A;--grey:#9FB0C8;--sheet:#1E3A63;--segOn:#22C7C4;--segOnFg:#03201F;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06152B;--surface:#0C2343;--surface2:#112B50;--ink:#EAF1FA;--muted:#9FB0C8;--navy:#EAF1FA;--primary:#FFFFFF;--onPrimary:#002856;--action:#22C7C4;--onAction:#03201F;--tealInk:#4FD9D6;--soft:#0E3A4A;--line:#1E3A63;--track:#1E3A63;--coralSoft:#3A2219;--red:#FF6B72;--badSoft:#3D1A22;--amber:#F0B44A;--warnSoft:#3A2E12;--green:#3CC48E;--deep:#112B50;--deepMuted:#B8C4D8;--outer:#030C1A;--grey:#9FB0C8;--sheet:#1E3A63;--segOn:#22C7C4;--segOnFg:#03201F;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--outer);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body,html[lang="ar"] button{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",system-ui,sans-serif !important}
+html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important;font-style:normal !important}
+html[lang="ar"] body{font-size:17px;line-height:1.8}
+html[lang="ar"] p,html[lang="ar"] li,html[lang="ar"] [data-rich]{line-height:1.8 !important}
+html[lang="ar"] h1,html[lang="ar"] h2{line-height:1.35 !important}
 button{font-family:inherit;color:inherit}
-a{color:#00807A}a:hover{color:#002858}
-.accent{color:#00B0A8}
-:focus-visible{outline:3px solid #00B0A8;outline-offset:3px}
+a{color:var(--tealInk)}a:hover{color:var(--navy)}
+.accent{color:var(--action)}
+:focus-visible{outline:3px solid var(--action);outline-offset:3px}
 input[type=range].olti{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0;cursor:grab}
-input[type=range].olti::-webkit-slider-runnable-track{height:4px;background:#C9CFD9;border-radius:2px}
-input[type=range].olti::-moz-range-track{height:4px;background:#C9CFD9;border-radius:2px}
-input[type=range].olti::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;margin-top:-16px;border-radius:50%;background:#002858;border:3px solid #fff;box-shadow:0 4px 14px -4px rgba(0,40,88,.6)}
-input[type=range].olti::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:#002858;border:3px solid #fff}
-@keyframes olti-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@keyframes olti-stamp{from{opacity:0;transform:rotate(-14deg) scale(1.6)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+input[type=range].olti::-webkit-slider-runnable-track{height:4px;background:var(--track);border-radius:2px}
+input[type=range].olti::-moz-range-track{height:4px;background:var(--track);border-radius:2px}
+input[type=range].olti::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;margin-top:-16px;border-radius:50%;background:var(--primary);border:3px solid var(--surface);box-shadow:var(--shadow)}
+input[type=range].olti::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--primary);border:3px solid var(--surface)}
+@keyframes olti-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes olti-stamp{from{opacity:0;transform:rotate(-14deg) scale(1.5)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
 @keyframes olti-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes olti-pop{0%{opacity:0;transform:translateY(6px)}15%{opacity:1;transform:none}75%{opacity:1}100%{opacity:0;transform:translateY(-6px)}}
+@keyframes olti-sheet{from{transform:translateY(100%)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 </style>
 </helmet>
-<div dir="{{ dir }}" lang="{{ lang }}" style="min-height:100svh;display:flex;justify-content:center;background:#E9ECF1">
-<div style="width:100%;max-width:560px;min-height:100svh;background:#FAFAF7;display:flex;flex-direction:column;box-shadow:0 0 0 1px #DDE1E8">
+<div dir="{{ dir }}" lang="{{ lang }}" style="min-height:100svh;display:flex;justify-content:center;background:var(--outer)">
+<div style="width:100%;max-width:560px;min-height:100svh;background:var(--bg);display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)">
 
-  <header style="position:sticky;top:0;z-index:20;background:rgba(250,250,247,.94);backdrop-filter:blur(10px);border-bottom:1px solid #E3E6EC">
-    <div style="display:flex;align-items:center;gap:12px;padding:10px 16px">
-      <img src="assets/yplus-logo.png" alt="Y+" style="height:26px;width:auto;display:block">
-      <span data-latin style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ brand }}</span>
-      <sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="margin-inline-start:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#00807A;border:1px solid #00B0A8;border-radius:4px;padding:3px 7px">{{ t.modeKiosk }}</span></sc-if>
-      <div role="group" aria-label="Language" style="margin-inline-start:auto;display:flex;gap:2px;background:#E9ECF1;border-radius:6px;padding:2px">
-        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
-          <button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.active }}" style="min-height:32px;min-width:38px;padding:0 9px;border:0;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }}" style-hover="color:#002858">{{ l.label }}</button>
-        </sc-for>
-      </div>
-    </div>
-    <sc-if value="{{ inStory }}" hint-placeholder-val="{{ false }}">
-      <div style="padding:8px 16px 10px;border-top:1px solid #E3E6EC;background:#FFFFFF">
-        <button type="button" onClick="{{ togglePath }}" aria-expanded="{{ pathOpen }}" style="width:100%;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0;border:0;background:transparent;text-align:start;font-size:12px;font-weight:600;color:#0F1B33;cursor:pointer">
-          <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:4px;background:{{ youBg }};color:#fff;font-weight:700">{{ t.common.you }} · {{ youPlace }}</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:4px;background:{{ nourBg }};color:#fff;font-weight:700">{{ t.common.nour }} · {{ nourPlace }}</span>
-          <span style="margin-inline-start:auto;color:#5B6578;white-space:nowrap">{{ yearLabel }} · {{ livingLabel }} · <b style="color:#0F1B33">{{ costCount }}</b> {{ t.badge.tracker }} <span aria-hidden="true" style="display:inline-block;transition:transform .2s;transform:{{ pathChevron }}">▾</span></span>
-        </button>
-        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progress }}" aria-label="Story progress" style="margin-top:8px;height:3px;background:#E3E6EC;border-radius:2px;overflow:hidden"><div style="height:100%;width:{{ progressPct }};background:#00B0A8;transition:width .4s"></div></div>
-        <sc-if value="{{ pathOpen }}" hint-placeholder-val="{{ false }}">
-          <ol style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px;animation:olti-fade .25s both">
-            <sc-for list="{{ pathItems }}" as="p" hint-placeholder-count="2">
-              <li style="display:flex;gap:10px;align-items:baseline;font-size:13px;line-height:1.4"><span style="flex:none;min-width:44px;font-weight:800;color:#00B0A8">{{ p.year }}</span><span style="color:#0F1B33">{{ p.text }}</span></li>
-            </sc-for>
-          </ol>
-        </sc-if>
-      </div>
-    </sc-if>
-  </header>
+<header style="position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
+<div style="display:flex;align-items:center;gap:10px;padding:10px 16px">
+<sc-if value="{{ isLightLogo }}" hint-placeholder-val="{{ true }}"><img src="assets/yplus-logo.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none"></sc-if><sc-if value="{{ isDarkLogo }}" hint-placeholder-val="{{ false }}"><img src="assets/yplus-logo.png" alt="YPlus" style="height:26px;width:auto;display:block;flex:none;background:#fff;border-radius:6px;padding:2px 4px"></sc-if>
+<span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ brand }}</span>
+<sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--tealInk);border:1px solid var(--action);border-radius:4px;padding:3px 7px">{{ t.modeKiosk }}</span></sc-if>
+<button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="margin-inline-start:auto;flex:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--navy);font-size:17px;cursor:pointer">{{ themeIcon }}</button>
+<div role="group" aria-label="Language" style="flex:none;display:flex;gap:3px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px">
+<sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
+<button type="button" onClick="{{ l.pick }}" aria-pressed="{{ l.active }}" style="min-height:36px;min-width:36px;padding:0 8px;border:0;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;background:{{ l.bg }};color:{{ l.fg }}">{{ l.label }}</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{ showTimeline }}" hint-placeholder-val="{{ false }}">
+<div style="padding:10px 16px 12px;border-top:1px solid var(--line);background:var(--surface)">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap">
+<span style="font-size:13px;font-weight:600;color:var(--ink)">{{ yearPre }} <span style="font-size:20px;font-weight:700;color:var(--coral)">{{ yearN }}</span> <span style="color:var(--muted)">{{ yearPost }}</span> {{ deltaPop }}</span>
+<span onClick="{{ onGloss }}" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--surface2);color:var(--muted)">{{ stageRich }}</span>
+</div>
+<div role="progressbar" aria-label="{{ yearOf }}" aria-valuemin="0" aria-valuemax="144" aria-valuenow="{{ months }}" aria-valuetext="{{ yearOf }} · {{ stageName }}" style="position:relative;height:28px;margin-top:2px">
+<div style="position:absolute;inset-inline:0;top:12px;height:4px;background:var(--line);border-radius:4px"></div>
+<div style="position:absolute;inset-inline-start:0;top:12px;height:4px;width:{{ monthsPct }};background:var(--coral);border-radius:4px;transition:width .3s ease-out"></div>
+<sc-for list="{{ stageDots }}" as="d" hint-placeholder-count="7"><span aria-hidden="true" style="position:absolute;top:8px;inset-inline-start:{{ d.left }};margin-inline-start:-6px;width:12px;height:12px;border-radius:50%;box-sizing:border-box;background:{{ d.bg }};border:1.5px solid {{ d.border }};box-shadow:{{ d.glow }};transition:background .3s,box-shadow .3s"></span></sc-for>
+</div>
+<div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)"><span>0</span><span>3</span><span>6</span><span>9</span><span>12</span></div>
+<sc-if value="{{ hasWait }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;display:flex;align-items:center;gap:10px;background:var(--surface2);border-radius:12px;padding:8px 12px;font-size:13px"><span aria-hidden="true" style="position:relative;width:30px;height:34px;flex:none"><sc-for list="{{ miniPapers }}" as="p" hint-placeholder-count="3"><i style="position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--muted);border-radius:4px;transform:{{ p.tf }}"></i></sc-for></span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--coral)">{{ waitN }}</span><span>{{ waitWord }}</span></div></sc-if>
+<button type="button" onClick="{{ togglePath }}" aria-expanded="{{ pathOpen }}" style="width:100%;margin-top:6px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-height:32px;padding:0;border:0;background:transparent;text-align:start;font-size:12px;font-weight:600;color:var(--ink);cursor:pointer">
+<span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:6px;background:{{ youBg }};color:#fff;font-weight:700">{{ t.common.you }} · {{ youPlace }}</span>
+<span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:6px;background:{{ nourBg }};color:#fff;font-weight:700">{{ t.common.nour }} · {{ nourPlace }}</span>
+<span style="margin-inline-start:auto;color:var(--muted);white-space:nowrap">{{ livingLabel }} · <b style="color:var(--ink)">{{ costCount }}</b> {{ t.badge.tracker }} <span aria-hidden="true" style="display:inline-block;transition:transform .2s;transform:{{ pathChevron }}">▾</span></span>
+</button>
+<sc-if value="{{ pathOpen }}" hint-placeholder-val="{{ false }}">
+<ol style="margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px;animation:olti-fade .2s both">
+<sc-for list="{{ pathItems }}" as="p" hint-placeholder-count="2">
+<li style="display:flex;gap:10px;align-items:baseline;font-size:13px;line-height:1.4"><span style="flex:none;min-width:52px;font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--tealInk)">{{ p.year }}</span><span>{{ p.text }}</span></li>
+</sc-for>
+</ol>
+</sc-if>
+</div>
+</sc-if>
+</header>
 
-  <main style="flex:1;display:flex;flex-direction:column">
+<main style="flex:1;display:flex;flex-direction:column">
 
-  <sc-if value="{{ inIntro }}" hint-placeholder-val="{{ true }}">
-    <section data-screen-label="Landing" style="display:flex;flex-direction:column;gap:22px;padding:28px 20px 40px;animation:olti-fade .4s both">
-      <div>
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:12px">{{ t.intro.eyebrow }}</div>
-        <h1 data-latin-tight style="margin:0;font-size:clamp(46px,13vw,76px);line-height:.92;letter-spacing:-.03em;font-weight:800;color:#002858;text-wrap:balance">{{ titleRich }}</h1>
-        <p data-serif style="margin:18px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(19px,4.6vw,23px);line-height:1.4;color:#0F1B33;max-width:36ch;text-wrap:pretty">{{ t.intro.lede }}</p>
-      </div>
-      <div style="background:#E6F7F6;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.55;color:#0F1B33">{{ contextRich }}</div>
-      <div>
-        <button type="button" onClick="{{ toggleHow }}" aria-expanded="{{ howOpen }}" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;border:0;background:transparent;font-size:15px;font-weight:700;color:#002858;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#00B0A8">{{ howLabel }}</button>
-        <sc-if value="{{ howOpen }}" hint-placeholder-val="{{ false }}">
-          <ol style="margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px;animation:olti-fade .3s both">
-            <sc-for list="{{ howSteps }}" as="s" hint-placeholder-count="4">
-              <li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45;padding:10px 12px;background:#fff;border:1px solid #E3E6EC;border-radius:8px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#002858;color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center">{{ s.n }}</span><span>{{ s.text }}</span></li>
-            </sc-for>
-          </ol>
-        </sc-if>
-      </div>
-      <div>
-        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5B6578;margin-bottom:12px">{{ t.intro.question }}</div>
-        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
-          <sc-for list="{{ idCards }}" as="card" hint-placeholder-count="2">
-            <div style="perspective:1000px;min-height:230px">
-              <div style="position:relative;width:100%;height:230px;transition:transform .55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d;transform:{{ card.transform }}">
-                <button type="button" onClick="{{ card.flip }}" aria-label="{{ card.title }}: {{ t.scenes.flip }}" style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;text-align:start;cursor:pointer;border:0;border-radius:12px;padding:16px 14px 14px;display:flex;flex-direction:column;gap:8px;background:{{ card.bg }};color:#fff;box-shadow:0 12px 30px -18px rgba(0,40,88,.6)">
-                  <span style="display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;opacity:.9"><span>{{ card.chip }}</span><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:15px;line-height:1">↻</span></span>
-                  <span style="font-size:22px;font-weight:800;line-height:1.05;letter-spacing:-.01em;margin-top:auto">{{ card.title }}</span>
-                  <span style="font-size:13px;line-height:1.45;opacity:.92">{{ card.desc }}</span>
-                  <span style="margin-top:4px;font-size:11px;font-weight:700;opacity:.85">{{ t.scenes.flip }}</span>
-                </button>
-                <div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;background:#fff;border:2px solid {{ card.solid }};box-shadow:0 12px 30px -18px rgba(0,40,88,.4)">
-                  <button type="button" onClick="{{ card.flip }}" aria-label="{{ t.scenes.howClose }}" style="align-self:flex-start;border:0;background:transparent;padding:0;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:{{ card.solid }};cursor:pointer;min-height:24px">{{ card.chip }} ↻</button>
-                  <sc-for list="{{ card.back }}" as="row" hint-placeholder-count="3">
-                    <div style="font-size:11.5px;line-height:1.35"><div style="font-weight:800;color:#5B6578;font-size:10px;letter-spacing:.06em;text-transform:uppercase">{{ row.k }}</div><div style="color:#0F1B33">{{ row.v }}</div></div>
-                  </sc-for>
-                  <button type="button" onClick="{{ card.start }}" style="margin-top:auto;min-height:40px;border:0;border-radius:6px;background:{{ card.solid }};color:#fff;font-size:13px;font-weight:800;cursor:pointer">{{ t.scenes.carry }} →</button>
-                </div>
-              </div>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#5B6578;text-wrap:pretty">{{ t.intro.note }}</p>
-    </section>
-  </sc-if>
+<sc-if value="{{ is.intro }}" hint-placeholder-val="{{ true }}">
+<section data-screen-label="01 Landing" style="display:flex;flex-direction:column;gap:22px;padding:28px 20px 40px;animation:olti-fade .3s both">
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:12px">{{ t.intro.eyebrow }}</div>
+<h1 style="margin:0;font-size:clamp(28px,8vw,44px);line-height:1.1;letter-spacing:-.02em;font-weight:700;color:var(--navy);text-wrap:balance">{{ titleRich }}</h1>
+<p style="margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--muted);max-width:36ch;text-wrap:pretty">{{ t.intro.lede }}</p>
+</div>
+<div data-rich style="background:var(--soft);border-radius:18px;padding:14px 16px;font-size:14.5px;line-height:1.55;color:var(--ink)">{{ contextRich }}</div>
+<div>
+<button type="button" onClick="{{ toggleHow }}" aria-expanded="{{ howOpen }}" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;border:0;background:transparent;font-size:15px;font-weight:600;color:var(--navy);cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--coral);text-decoration-thickness:2px">{{ howLabel }}</button>
+<sc-if value="{{ howOpen }}" hint-placeholder-val="{{ false }}">
+<ol style="margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px;animation:olti-fade .25s both">
+<sc-for list="{{ howSteps }}" as="s" hint-placeholder-count="4">
+<li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45;padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-radius:14px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:var(--primary);color:var(--onPrimary);font-size:12px;font-weight:700;display:grid;place-items:center">{{ s.n }}</span><span>{{ s.text }}</span></li>
+</sc-for>
+</ol>
+</sc-if>
+</div>
+<div>
+<div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:10px">{{ v.journey.label }}</div>
+<div role="radiogroup" aria-label="{{ v.journey.label }}" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<sc-for list="{{ journeys }}" as="j" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{ j.on }}" onClick="{{ j.pick }}" style="display:flex;flex-direction:column;gap:4px;text-align:start;min-height:72px;padding:12px 14px;border-radius:14px;border:1.5px solid {{ j.border }};background:var(--surface);cursor:pointer;color:var(--ink)"><span style="display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:700;color:var(--navy)"><span aria-hidden="true" style="flex:none;width:16px;height:16px;border-radius:50%;border:1.5px solid {{ j.border }};background:{{ j.dot }};box-sizing:border-box"></span>{{ j.title }}</span><span style="font-size:12.5px;color:var(--muted);font-family:'IBM Plex Mono',monospace">{{ j.sub }}</span></button>
+</sc-for>
+</div>
+</div>
+<div>
+<div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:10px">{{ t.intro.question }}</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+<sc-for list="{{ idCards }}" as="card" hint-placeholder-count="2">
+<div style="perspective:1000px;min-height:236px">
+<div style="position:relative;width:100%;height:236px;transition:transform .3s ease-out;transform-style:preserve-3d;transform:{{ card.transform }}">
+<button type="button" onClick="{{ card.flip }}" aria-label="{{ card.title }}: {{ t.scenes.flip }}" style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;text-align:start;cursor:pointer;border:0;border-radius:18px;padding:16px 14px 14px;display:flex;flex-direction:column;gap:8px;background:{{ card.bg }};color:#fff;box-shadow:var(--shadow)">
+<span style="display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700"><span>{{ card.chip }}</span><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:15px;line-height:1">↻</span></span>
+<span style="font-size:21px;font-weight:700;line-height:1.1;margin-top:auto">{{ card.title }}</span>
+<span style="font-size:13px;line-height:1.45">{{ card.desc }}</span>
+<span style="margin-top:4px;font-size:11px;font-weight:600">{{ t.scenes.flip }}</span>
+</button>
+<div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1.5px solid {{ card.solid }};box-shadow:var(--shadow)">
+<button type="button" onClick="{{ card.flip }}" style="align-self:flex-start;border:0;background:transparent;padding:0;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:{{ card.ink }};cursor:pointer;min-height:24px">{{ card.chip }} ↻</button>
+<sc-for list="{{ card.back }}" as="row" hint-placeholder-count="3">
+<div style="font-size:11.5px;line-height:1.35"><div style="font-weight:700;color:var(--muted);font-size:10px;letter-spacing:.06em;text-transform:uppercase">{{ row.k }}</div><div>{{ row.v }}</div></div>
+</sc-for>
+<button type="button" onClick="{{ card.start }}" style="margin-top:auto;min-height:44px;border:0;border-radius:14px;background:{{ card.solid }};color:#fff;font-size:13px;font-weight:700;cursor:pointer">{{ t.scenes.carry }} →</button>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+<button type="button" onClick="{{ fateStart }}" style="margin-top:12px;width:100%;display:flex;align-items:center;gap:12px;text-align:start;min-height:60px;padding:10px 16px;border-radius:18px;border:2px dashed var(--track);background:transparent;cursor:pointer;color:var(--ink)" style-hover="border-color:var(--coral)"><span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:var(--coral);color:#002856;display:grid;place-items:center;font-size:18px;font-weight:700">?</span><span><span style="display:block;font-size:15.5px;font-weight:700;color:var(--navy)">{{ v.fate.title }}</span><span style="display:block;font-size:13px;color:var(--muted)">{{ v.fate.desc }}</span></span></button>
+</div>
+<p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--muted);text-wrap:pretty">{{ t.intro.note }}</p>
+</section>
+</sc-if>
 
-  <sc-if value="{{ inStory }}" hint-placeholder-val="{{ false }}">
-    <section data-screen-label="Story" style="display:flex;flex-direction:column;gap:20px;padding:24px 20px 40px;animation:olti-fade .4s both">
-      <div style="display:flex;align-items:baseline;gap:14px">
-        <span style="font-size:64px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#00B0A8">{{ yearNum }}</span>
-        <div>
-          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ yearLabel }} · {{ chapterCount }}</div>
-          <h2 style="margin:4px 0 0;font-size:26px;line-height:1.1;font-weight:800;color:#002858;letter-spacing:-.01em">{{ chapter.title }}</h2>
-        </div>
-      </div>
-      <div data-serif style="font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.55;color:#0F1B33;text-wrap:pretty">{{ storyRich }}</div>
+<sc-if value="{{ is.story }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="03 Story" style="display:flex;flex-direction:column;gap:18px;padding:22px 20px 36px;animation:olti-fade .3s both">
+<div><span onClick="{{ onGloss }}" style="display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:700;color:var(--ink);background:var(--coralSoft);padding:4px 10px;border-radius:999px"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:var(--coral)"></span>{{ chipRich }}</span><sc-if value="{{ hasTitle }}" hint-placeholder-val="{{ true }}"><h2 style="margin:10px 0 0;font-size:22px;line-height:1.3;font-weight:700;color:var(--navy)">{{ chapter.title }}</h2></sc-if></div>
+<sc-if value="{{ fateLine }}" hint-placeholder-val="{{ false }}"><div role="status" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:var(--surface2);font-size:14px;font-weight:600;color:var(--ink)"><span aria-hidden="true" style="flex:none;width:24px;height:24px;border-radius:50%;background:var(--coral);color:#002856;display:grid;place-items:center;font-weight:700">?</span>{{ fateLine }}</div></sc-if>
+<div data-rich onClick="{{ onGloss }}" style="font-size:16px;line-height:1.6;color:var(--ink);text-wrap:pretty">{{ storyRich }}</div>
 
-      <div style="background:#fff;border:1px solid #E3E6EC;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px"><div style="font-size:15px;font-weight:800;color:#002858">{{ scene.title }}</div><div style="font-size:12px;color:#5B6578;text-align:end">{{ scene.hint }}</div></div>
+<sc-if value="{{ showScene }}" hint-placeholder-val="{{ false }}">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px"><div style="font-size:15px;font-weight:700;color:var(--navy)">{{ scene.title }}</div><div style="font-size:12px;color:var(--muted);text-align:end">{{ scene.hint }}</div></div>
 
-        <sc-if value="{{ scene.isDistance }}" hint-placeholder-val="{{ false }}">
-          <div style="position:relative;padding:34px 0 8px">
-            <div style="position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:#5B6578"><span style="color:{{ youColor }}">{{ t.scenes.distance.you }}</span><span>{{ t.scenes.distance.km }}</span><span style="color:{{ nourColor }}">{{ t.scenes.distance.nour }}</span></div>
-            <div aria-hidden="true" style="position:absolute;top:44px;left:calc(60% - 3px);width:6px;height:28px;background:#0F1B33;border-radius:1px;z-index:1"></div>
-            <div aria-hidden="true" style="position:absolute;top:80px;left:60%;transform:translateX(-50%);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#0F1B33;white-space:nowrap">{{ t.scenes.distance.wall }} · {{ t.scenes.distance.checkpoint }}</div>
-            <div style="position:relative;z-index:2"><input class="olti" type="range" min="0" max="100" value="{{ scene.pos }}" onChange="{{ scene.onSlide }}" onInput="{{ scene.onSlide }}" aria-label="{{ t.scenes.distance.hint }}"></div>
-            <div style="height:16px"></div>
-          </div>
-          <sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14.5px;font-weight:600;color:#002858;animation:olti-fade .3s both">{{ t.scenes.distance.done }}</p></sc-if>
-        </sc-if>
+<sc-if value="{{ scene.isDistance }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative;padding:34px 0 8px">
+<div style="position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--muted)"><span style="color:{{ youInk }}">{{ t.scenes.distance.you }}</span><span>{{ t.scenes.distance.km }}</span><span style="color:{{ nourInk }}">{{ t.scenes.distance.nour }}</span></div>
+<div aria-hidden="true" style="position:absolute;top:44px;left:calc(60% - 3px);width:6px;height:28px;background:var(--ink);border-radius:1px;z-index:1"></div>
+<div aria-hidden="true" style="position:absolute;top:80px;left:60%;transform:translateX(-50%);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--ink);white-space:nowrap">{{ t.scenes.distance.wall }} · {{ t.scenes.distance.checkpoint }}</div>
+<div style="position:relative;z-index:2"><input class="olti" type="range" min="0" max="100" value="{{ scene.pos }}" onChange="{{ scene.onSlide }}" onInput="{{ scene.onSlide }}" aria-label="{{ t.scenes.distance.hint }}"></div>
+<div style="height:16px"></div>
+</div>
+<sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14.5px;font-weight:600;color:var(--navy);animation:olti-fade .3s both">{{ t.scenes.distance.done }}</p></sc-if>
+</sc-if>
 
-        <sc-if value="{{ scene.isCalendar }}" hint-placeholder-val="{{ false }}">
-          <div style="position:relative">
-            <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px">
-              <sc-for list="{{ scene.days }}" as="d" hint-placeholder-count="14">
-                <button type="button" onClick="{{ d.pick }}" aria-pressed="{{ d.on }}" style="aspect-ratio:1;min-height:40px;border-radius:6px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.fg }};font-size:14px;font-weight:700;cursor:pointer">{{ d.n }}</button>
-              </sc-for>
-            </div>
-            <sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none"><span style="animation:olti-stamp .4s cubic-bezier(.2,.8,.2,1) both;border:3px solid #B8412D;color:#B8412D;border-radius:6px;padding:6px 14px;font-size:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;background:rgba(255,255,255,.85);transform:rotate(-8deg)">{{ t.scenes.calendar.stamp }}</span></div></sc-if>
-          </div>
-          <sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14.5px;font-weight:600;color:#002858;animation:olti-fade .3s both">{{ t.scenes.calendar.done }}</p></sc-if>
-        </sc-if>
+<sc-if value="{{ scene.isCalendar }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative">
+<div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px">
+<sc-for list="{{ scene.days }}" as="d" hint-placeholder-count="14">
+<button type="button" onClick="{{ d.pick }}" aria-pressed="{{ d.on }}" style="aspect-ratio:1;min-height:40px;border-radius:10px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.fg }};font-size:14px;font-weight:600;font-family:'IBM Plex Mono',monospace;cursor:pointer">{{ d.n }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none"><span style="animation:olti-stamp .3s ease-out both;border:3px solid var(--red);color:var(--red);border-radius:8px;padding:6px 14px;font-size:15px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--surface);transform:rotate(-8deg)">{{ t.scenes.calendar.stamp }}</span></div></sc-if>
+</div>
+<sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14.5px;font-weight:600;color:var(--navy);animation:olti-fade .3s both">{{ t.scenes.calendar.done }}</p></sc-if>
+</sc-if>
 
-        <sc-if value="{{ scene.isHousing }}" hint-placeholder-val="{{ false }}">
-          <div style="display:grid;grid-template-columns:1fr 12px 1fr;gap:8px;align-items:stretch">
-            <button type="button" onClick="{{ scene.zoneJ.pick }}" disabled="{{ scene.locked }}" aria-pressed="{{ scene.zoneJ.on }}" style="min-height:120px;border-radius:10px;border:2px solid #2F6FD8;background:{{ scene.zoneJ.bg }};color:{{ scene.zoneJ.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:14px;font-weight:800;opacity:{{ scene.zoneJ.opacity }}"><span aria-hidden="true" style="font-size:28px;line-height:1">{{ scene.zoneJ.icon }}</span>{{ t.scenes.housing.jerusalem }}</button>
-            <div aria-hidden="true" style="background:#0F1B33;border-radius:2px;position:relative"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#0F1B33;white-space:nowrap;background:#fff;padding:0 4px">{{ t.scenes.housing.wall }}</span></div>
-            <button type="button" onClick="{{ scene.zoneW.pick }}" disabled="{{ scene.locked }}" aria-pressed="{{ scene.zoneW.on }}" style="min-height:120px;border-radius:10px;border:2px solid #2F9E5B;background:{{ scene.zoneW.bg }};color:{{ scene.zoneW.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:14px;font-weight:800;opacity:{{ scene.zoneW.opacity }}"><span aria-hidden="true" style="font-size:28px;line-height:1">{{ scene.zoneW.icon }}</span>{{ t.scenes.housing.westBank }}</button>
-            <button type="button" onClick="{{ scene.zoneA.pick }}" disabled="{{ scene.locked }}" aria-pressed="{{ scene.zoneA.on }}" style="grid-column:1/-1;min-height:52px;border-radius:10px;border:2px dashed #5B6578;background:{{ scene.zoneA.bg }};color:{{ scene.zoneA.fg }};display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-size:14px;font-weight:800;opacity:{{ scene.zoneA.opacity }}"><span aria-hidden="true" style="font-size:20px;line-height:1">{{ scene.zoneA.icon }}</span>{{ t.scenes.housing.apart }}</button>
-          </div>
-        </sc-if>
+<sc-if value="{{ scene.isHousing }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:1fr 12px 1fr;gap:8px;align-items:stretch">
+<button type="button" onClick="{{ scene.zoneJ.pick }}" disabled="{{ scene.locked }}" aria-pressed="{{ scene.zoneJ.on }}" style="min-height:120px;border-radius:14px;border:2px solid #2F6FD8;background:{{ scene.zoneJ.bg }};color:{{ scene.zoneJ.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:14px;font-weight:700;opacity:{{ scene.zoneJ.opacity }}"><span aria-hidden="true" style="font-size:28px;line-height:1">{{ scene.zoneJ.icon }}</span>{{ t.scenes.housing.jerusalem }}</button>
+<div aria-hidden="true" style="background:var(--ink);border-radius:2px"></div>
+<button type="button" onClick="{{ scene.zoneW.pick }}" disabled="{{ scene.locked }}" aria-pressed="{{ scene.zoneW.on }}" style="min-height:120px;border-radius:14px;border:2px solid #2F9E5B;background:{{ scene.zoneW.bg }};color:{{ scene.zoneW.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:14px;font-weight:700;opacity:{{ scene.zoneW.opacity }}"><span aria-hidden="true" style="font-size:28px;line-height:1">{{ scene.zoneW.icon }}</span>{{ t.scenes.housing.westBank }}</button>
+<button type="button" onClick="{{ scene.zoneA.pick }}" disabled="{{ scene.locked }}" aria-pressed="{{ scene.zoneA.on }}" style="grid-column:1/-1;min-height:52px;border-radius:14px;border:2px dashed var(--muted);background:{{ scene.zoneA.bg }};color:{{ scene.zoneA.fg }};display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-size:14px;font-weight:700;opacity:{{ scene.zoneA.opacity }}"><span aria-hidden="true" style="font-size:20px;line-height:1">{{ scene.zoneA.icon }}</span>{{ t.scenes.housing.apart }}</button>
+</div>
+</sc-if>
 
-        <sc-if value="{{ scene.isDocuments }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <sc-for list="{{ scene.docs }}" as="d" hint-placeholder-count="5">
-              <button type="button" onClick="{{ d.pick }}" aria-pressed="{{ d.on }}" style="min-height:44px;padding:0 14px;border-radius:6px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.fg }};font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s"><span aria-hidden="true" style="font-size:12px">{{ d.mark }}</span>{{ d.text }}</button>
-            </sc-for>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;background:#F0F2F6">
-            <div style="flex:none;width:44px;height:56px;border-radius:4px;background:#fff;border:1.5px solid #C9CFD9;position:relative;overflow:hidden"><div style="position:absolute;bottom:0;left:0;right:0;height:{{ scene.fill }};background:#002858;transition:height .3s"></div></div>
-            <div style="font-size:13px;color:#5B6578;line-height:1.4"><div style="font-weight:800;color:#002858;font-size:12px;letter-spacing:.1em;text-transform:uppercase">{{ scene.docCount }}</div>
-              <sc-if value="{{ scene.done }}" hint-placeholder-val="{{ false }}"><div style="font-size:15px;color:#0F1B33;animation:olti-fade .3s both">{{ t.scenes.documents.waiting }}: <b style="color:#B8412D">{{ monthsTicker }}</b> {{ t.scenes.documents.months }}</div></sc-if>
-            </div>
-          </div>
-        </sc-if>
+<sc-if value="{{ scene.isDocuments }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ scene.docs }}" as="d" hint-placeholder-count="5">
+<button type="button" onClick="{{ d.pick }}" aria-pressed="{{ d.on }}" style="min-height:44px;padding:0 14px;border-radius:14px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.fg }};font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s"><span aria-hidden="true" style="font-size:12px">{{ d.mark }}</span>{{ d.text }}</button>
+</sc-for>
+</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--navy)">{{ scene.docCount }}</div>
+</sc-if>
 
-        <sc-if value="{{ scene.isForm }}" hint-placeholder-val="{{ false }}">
-          <div style="display:grid;gap:6px">
-            <sc-for list="{{ scene.fields }}" as="f" hint-placeholder-count="5">
-              <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px;align-items:center;text-align:start;min-height:44px;padding:8px 12px;border-radius:6px;border:1.5px solid {{ f.border }};background:{{ f.bg }};cursor:pointer"><span style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;color:#5B6578">{{ f.label }}</span><span style="font-size:14px;font-weight:700;color:{{ f.fg }};border-bottom:1.5px solid {{ f.line }};padding-bottom:2px;min-height:18px;animation:{{ f.anim }}">{{ f.value }}</span></button>
-            </sc-for>
-          </div>
-        </sc-if>
+<sc-if value="{{ scene.isForm }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;gap:6px">
+<sc-for list="{{ scene.fields }}" as="f" hint-placeholder-count="5">
+<button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px;align-items:center;text-align:start;min-height:44px;padding:8px 12px;border-radius:10px;border:1.5px solid {{ f.border }};background:{{ f.bg }};cursor:pointer"><span style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ f.label }}</span><span style="font-size:14px;font-weight:600;color:{{ f.fg }};border-bottom:1.5px solid {{ f.line }};padding-bottom:2px;min-height:18px">{{ f.value }}</span></button>
+</sc-for>
+</div>
+</sc-if>
 
-        <sc-if value="{{ scene.isClock }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;align-items:center;gap:16px">
-            <div style="font-size:56px;line-height:1;font-weight:800;letter-spacing:-.03em;color:#002858;font-variant-numeric:tabular-nums">{{ clockTicker }}</div>
-            <div style="width:10px;height:10px;border-radius:50%;background:#B8412D;animation:olti-pulse 1.2s infinite"></div>
-          </div>
-        </sc-if>
+<sc-if value="{{ scene.isCountdown }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;background:var(--badSoft);border:1.5px solid var(--red)">
+<div style="position:relative;flex:none;width:112px;height:112px">
+<svg width="112" height="112" viewBox="0 0 112 112" aria-hidden="true" style="transform:rotate(-90deg)"><circle cx="56" cy="56" r="48" fill="none" stroke="var(--line)" stroke-width="8"></circle><circle cx="56" cy="56" r="48" fill="none" stroke="var(--red)" stroke-width="8" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="{{ scene.ring }}" style="transition:stroke-dashoffset 1s linear"></circle></svg>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:32px;font-weight:600;line-height:1;color:var(--red)">{{ scene.cd }}</span><span style="font-size:11px;color:var(--muted);margin-top:2px">{{ v.countdown.seconds }}</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--warnSoft);color:var(--amber)"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ v.ui.simulated }}</span><p style="margin:0;font-size:16px;line-height:1.5;font-weight:600;color:var(--navy)">{{ scene.text }}</p></div>
+</div>
+<div aria-live="assertive" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">{{ scene.cdAnnounce }}</div>
+</sc-if>
 
-        <sc-if value="{{ scene.isTimeline }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;gap:6px">
-            <sc-for list="{{ scene.years }}" as="y" hint-placeholder-count="6">
-              <button type="button" onClick="{{ y.pick }}" aria-pressed="{{ y.on }}" style="flex:1;min-height:44px;border-radius:6px;border:1.5px solid {{ y.border }};background:{{ y.bg }};color:{{ y.fg }};font-size:14px;font-weight:800;cursor:pointer">{{ y.n }}</button>
-            </sc-for>
-          </div>
-          <div style="padding:12px 14px;border-radius:8px;background:#F0F2F6;font-size:14px;line-height:1.45"><b style="color:#002858">{{ scene.memTitle }}</b><br>{{ scene.memText }}</div>
-        </sc-if>
-      </div>
+<sc-if value="{{ scene.isTimeline }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:6px">
+<sc-for list="{{ scene.years }}" as="y" hint-placeholder-count="6">
+<button type="button" onClick="{{ y.pick }}" aria-pressed="{{ y.on }}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid {{ y.border }};background:{{ y.bg }};color:{{ y.fg }};font-size:14px;font-weight:600;font-family:'IBM Plex Mono',monospace;cursor:pointer">{{ y.n }}</button>
+</sc-for>
+</div>
+<div style="padding:12px 14px;border-radius:14px;background:var(--soft);font-size:14px;line-height:1.45"><b style="color:var(--navy)">{{ scene.memTitle }}</b><br>{{ scene.memText }}</div>
+</sc-if>
+</div>
+</sc-if>
 
-      <sc-if value="{{ choicesVisible }}" hint-placeholder-val="{{ true }}">
-        <div style="display:grid;gap:10px;animation:olti-fade .35s both">
-          <sc-for list="{{ choices }}" as="c" hint-placeholder-count="2">
-            <button type="button" onClick="{{ c.pick }}" disabled="{{ c.disabled }}" aria-pressed="{{ c.active }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:start;min-height:56px;padding:14px 16px;border-radius:8px;font-size:16px;font-weight:600;line-height:1.3;cursor:pointer;transition:background .15s,opacity .15s;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};opacity:{{ c.opacity }}" style-hover="background:#F0F2F6"><span>{{ c.text }}</span><span aria-hidden="true" style="flex:none;font-size:18px">{{ c.arrow }}</span></button>
-          </sc-for>
-        </div>
-      </sc-if>
-      <sc-if value="{{ hasPicked }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;flex-direction:column;gap:12px;animation:olti-fade .35s both">
-          <div style="background:#002858;color:#fff;border-radius:10px;padding:18px 18px 20px">
-            <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#7FD9D4;margin-bottom:8px">{{ t.badge.picked }}: {{ pickedLog }}</div>
-            <p data-serif style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.5;text-wrap:pretty">{{ consequence }}</p>
-          </div>
-          <sc-if value="{{ hasFact }}" hint-placeholder-val="{{ false }}">
-            <div style="background:#E6F7F6;border-radius:10px;padding:16px 18px 18px">
-              <div style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00B0A8"></span>{{ t.common.documented }}</div>
-              <p style="margin:0;font-size:15px;line-height:1.55;color:#0F1B33;text-wrap:pretty">{{ fact }}</p>
-              <div style="margin-top:10px;font-size:12px;color:#5B6578">{{ t.badge.sourceLabel }}: <a href="{{ factSourceUrl }}" target="_blank" rel="noopener" style="font-weight:600">{{ factSourceName }}</a> · {{ sourceCheckedLabel }}</div>
-            </div>
-          </sc-if>
-          <button type="button" onClick="{{ next }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer;letter-spacing:.01em" style-hover="background:#00C4BB">{{ nextLabel }}</button>
-        </div>
-      </sc-if>
-      <button type="button" onClick="{{ confirmReset }}" style="align-self:flex-start;margin-top:8px;min-height:44px;padding:0 4px;border:0;background:transparent;font-size:13px;font-weight:600;color:#5B6578;cursor:pointer;text-decoration:underline;text-underline-offset:3px" style-hover="color:#B8412D">↺ {{ t.badge.startOver }}</button>
-    </section>
-  </sc-if>
+<sc-if value="{{ hasWhy }}" hint-placeholder-val="{{ false }}">
+<div style="border:1px solid var(--line);border-radius:12px;background:var(--surface2)">
+<button type="button" onClick="{{ toggleWhy }}" aria-expanded="{{ whyOpen }}" style="width:100%;display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border:0;background:transparent;text-align:start;font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer"><span aria-hidden="true" style="flex:none;width:20px;height:20px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700;line-height:1">{{ whySign }}</span><span style="flex:1">{{ v.why }}</span><span aria-hidden="true" style="transition:transform .2s;transform:{{ whyChevron }}">▾</span></button>
+<sc-if value="{{ whyOpen }}" hint-placeholder-val="{{ false }}"><div data-rich onClick="{{ onGloss }}" style="padding:0 14px 14px;padding-inline-start:44px;font-size:14.5px;line-height:1.6;color:var(--muted);animation:olti-fade .2s both">{{ whyRich }}</div></sc-if>
+</div>
+</sc-if>
 
-  <sc-if value="{{ inEnd }}" hint-placeholder-val="{{ false }}">
-    <section data-screen-label="Ending" style="display:flex;flex-direction:column;gap:28px;padding:28px 20px 48px;animation:olti-fade .4s both">
-      <div>
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#00807A;margin-bottom:10px">{{ t.end.eyebrow }}</div>
-        <h2 style="margin:0;font-size:clamp(34px,9vw,48px);line-height:1;font-weight:800;color:#002858;letter-spacing:-.02em;text-wrap:balance">{{ t.end.title }}</h2>
-        <p data-serif style="margin:16px 0 0;font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.45;color:#0F1B33;text-wrap:pretty">{{ t.end.aha }}</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-        <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.summary.together }}</div><div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858;line-height:1.2">{{ t.summary.years }}</div></div>
-        <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.summary.living }}</div><div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858;line-height:1.2">{{ livingLabel }}</div></div>
-        <div style="grid-column:1/-1;background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px">
-          <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5B6578">{{ t.summary.cost }} · {{ costCount }} {{ t.summary.choices }}</div>
-          <ol style="margin:12px 0 0;padding:0;list-style:none;display:grid;gap:0">
-            <sc-for list="{{ pathItems }}" as="p" hint-placeholder-count="3">
-              <li style="display:grid;grid-template-columns:44px 14px minmax(0,1fr);gap:8px;align-items:start;font-size:14px;line-height:1.4;color:#0F1B33">
-                <span style="font-weight:800;color:#00B0A8;padding-top:1px">{{ p.year }}</span>
-                <span aria-hidden="true" style="position:relative;height:100%;min-height:34px"><span style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:#002858"></span><span style="position:absolute;top:16px;bottom:-8px;left:50%;width:2px;transform:translateX(-50%);background:{{ p.line }}"></span></span>
-                <span style="padding-bottom:12px">{{ p.text }}</span>
-              </li>
-            </sc-for>
-          </ol>
-        </div>
-      </div>
-      <p style="margin:0;font-size:16px;line-height:1.55;color:#0F1B33;text-wrap:pretty">{{ t.end.message }}</p>
+<sc-if value="{{ isFirst }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:10px">
+<h3 style="margin:0;font-size:17px;line-height:1.35;font-weight:700;color:var(--navy);text-wrap:balance">{{ v.q.title }}</h3>
+<sc-for list="{{ firstOpts }}" as="o" hint-placeholder-count="2">
+<button type="button" onClick="{{ o.pick }}" disabled="{{ o.disabled }}" aria-pressed="{{ o.active }}" style="display:flex;align-items:center;gap:12px;text-align:start;min-height:52px;padding:14px 16px;border-radius:14px;border:1.5px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};cursor:pointer;opacity:{{ o.opacity }};transition:opacity .15s"><span style="flex:1"><span style="display:block;font-size:15px;font-weight:700">{{ o.title }}</span><span style="display:block;margin-top:2px;font-size:13px;color:var(--muted)">{{ o.sub }}</span></span><span aria-hidden="true" style="flex:none;font-size:18px">{{ o.arrow }}</span></button>
+</sc-for>
+<p style="margin:0;display:flex;gap:8px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:var(--muted)"><span aria-hidden="true" style="flex:none;margin-top:6px;width:8px;height:8px;border-radius:50%;background:var(--coral)"></span>{{ v.q.hint }}</p>
+<sc-if value="{{ showHesitate }}" hint-placeholder-val="{{ false }}">
+<div style="background:var(--soft);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px;animation:olti-fade .25s both">
+<div style="font-size:15px;font-weight:700;color:var(--navy)">{{ v.q.hTitle }}</div>
+<ul data-rich onClick="{{ onGloss }}" style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
+<sc-for list="{{ hItems }}" as="h" hint-placeholder-count="4"><li style="display:flex;gap:10px;font-size:14.5px;line-height:1.5"><span aria-hidden="true" style="flex:none;margin-top:7px;width:6px;height:6px;border-radius:50%;background:var(--navy)"></span><span>{{ h.rich }}</span></li></sc-for>
+</ul>
+<button type="button" onClick="{{ acceptA }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ v.q.a }}</button>
+</div>
+</sc-if>
+</div>
+</sc-if>
 
-      <div style="display:flex;align-items:center;gap:14px;background:#002858;border-radius:12px;padding:16px 18px;color:#fff">
-        <svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#00B0A8" stroke-width="3"/><path d="M16 27l7 7 14-15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div><div style="font-size:18px;font-weight:800;line-height:1.1">{{ t.badge.title }}</div><div style="margin-top:4px;font-size:12.5px;color:#B8C4D8">{{ t.badge.sub }}</div><div style="margin-top:2px;font-size:12.5px;color:#7FD9D4;font-weight:600">{{ t.badge.progress }}</div></div>
-      </div>
+<sc-if value="{{ choicesVisible }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;gap:10px;animation:olti-fade .25s both">
+<sc-for list="{{ choices }}" as="c" hint-placeholder-count="2">
+<button type="button" onClick="{{ c.pick }}" disabled="{{ c.disabled }}" aria-pressed="{{ c.active }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:start;min-height:52px;padding:14px 16px;border-radius:14px;font-size:15px;font-weight:700;line-height:1.3;cursor:pointer;transition:opacity .15s;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};opacity:{{ c.opacity }}"><span>{{ c.text }}</span><span aria-hidden="true" style="flex:none;font-size:18px">{{ c.arrow }}</span></button>
+</sc-for>
+</div>
+</sc-if>
 
-      <div>
-        <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#002858;letter-spacing:-.01em">{{ t.reality.title }}</h3>
-        <p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:#5B6578">{{ t.reality.intro }}</p>
-        <div style="display:grid;gap:10px">
-          <sc-for list="{{ t.reality.items }}" as="r" hint-placeholder-count="3">
-            <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:14px 16px"><div style="font-size:16px;font-weight:800;color:#002858">{{ r.title }}</div><p style="margin:6px 0 0;font-size:14.5px;line-height:1.5;color:#0F1B33">{{ r.text }}</p></div>
-          </sc-for>
-        </div>
-      </div>
+<sc-if value="{{ hasPicked }}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="display:flex;flex-direction:column;gap:12px;animation:olti-fade .25s both">
+<sc-if value="{{ expired }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:14px;border:2px solid var(--red);background:var(--surface);font-size:15px;font-weight:600;line-height:1.45;color:var(--ink)"><span aria-hidden="true" style="flex:none;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700">✕</span><span><b style="color:var(--red)">{{ v.ui.decided }}.</b> {{ expiredText }}</span></div></sc-if>
+<div style="background:var(--deep);color:var(--onDeep);border-radius:18px;padding:18px">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--deepAccent);margin-bottom:8px">{{ t.badge.picked }}: {{ pickedLog }}</div>
+<div data-rich onClick="{{ onGloss }}" style="font-size:16px;line-height:1.6;text-wrap:pretty">{{ consRich }}</div>
+</div>
+<sc-if value="{{ hasFact }}" hint-placeholder-val="{{ false }}">
+<div style="background:var(--soft);border-radius:18px;padding:16px 18px">
+<div style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--tealInk);margin-bottom:8px"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:var(--action)"></span>{{ t.common.documented }}</div>
+<div data-rich onClick="{{ onGloss }}" style="font-size:15px;line-height:1.55;text-wrap:pretty">{{ factRich }}</div>
+<div style="margin-top:10px;font-size:12px;color:var(--muted)">{{ t.badge.sourceLabel }}: <a href="{{ factSourceUrl }}" target="_blank" rel="noopener" style="font-weight:600">{{ factSourceName }}</a> · {{ sourceCheckedLabel }}</div>
+</div>
+</sc-if>
+<button type="button" onClick="{{ next }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ nextLabel }}</button>
+</div>
+</sc-if>
 
-      <div>
-        <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#002858;letter-spacing:-.01em">{{ t.realStories.title }}</h3>
-        <p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:#5B6578">{{ t.realStories.intro }}</p>
-        <div style="display:grid;gap:10px">
-          <sc-for list="{{ realStories }}" as="s" hint-placeholder-count="3">
-            <a href="{{ s.url }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;background:#E6F7F6;border-radius:10px;padding:16px 18px" style-hover="background:#D6F1EF">
-              <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#00807A">{{ s.tag }}</div>
-              <div style="margin-top:6px;font-size:17px;font-weight:800;color:#002858;line-height:1.2">{{ s.title }}</div>
-              <p style="margin:6px 0 10px;font-size:14.5px;line-height:1.5;color:#0F1B33">{{ s.text }}</p>
-              <span style="font-size:13px;font-weight:700;color:#00807A;text-decoration:underline;text-underline-offset:3px">{{ t.realStories.link }} ↗</span>
-            </a>
-          </sc-for>
-        </div>
-      </div>
+<sc-if value="{{ showParallel }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--muted);background:var(--surface2);border-radius:12px;padding:8px 10px"><span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--muted);flex:none;margin-top:5px;opacity:.6"></span><span style="flex:1">{{ v.parallel.label }} <b style="color:var(--ink);font-weight:600">{{ parallelNow }}</b></span><span style="flex:none;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--warnSoft);color:var(--amber)">{{ v.ui.illustrative }}</span></div>
+</sc-if>
 
-      <div style="background:#fff;border:1px solid #E3E6EC;border-radius:10px;padding:16px 18px">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#002858">{{ t.sources.title }}</h3>
-        <p style="margin:0 0 10px;font-size:13.5px;line-height:1.5;color:#5B6578">{{ t.sources.note }}</p>
-        <ul style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
-          <sc-for list="{{ sourceItems }}" as="s" hint-placeholder-count="3"><li style="font-size:14px;line-height:1.5"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.text }}</a></li></sc-for>
-        </ul>
-        <div style="margin-top:10px;font-size:12px;color:#5B6578">{{ sourceCheckedLabel }}</div>
-      </div>
+<button type="button" onClick="{{ confirmReset }}" style="align-self:flex-start;min-height:44px;padding:0 4px;border:0;background:transparent;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px">↺ {{ t.badge.startOver }}</button>
+</section>
+</sc-if>
 
-      <sc-if value="{{ isOnline }}" hint-placeholder-val="{{ true }}">
-        <div>
-          <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#002858;letter-spacing:-.01em">{{ t.actions.title }}</h3>
-          <p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:#5B6578">{{ t.actions.intro }}</p>
-          <div style="display:grid;gap:10px">
-            <button type="button" onClick="{{ email }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#00C4BB">{{ t.actions.email }}</button>
-            <button type="button" onClick="{{ share }}" style="min-height:56px;border:0;border-radius:8px;background:#002858;color:#fff;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#0B3A78">{{ t.actions.share }}</button>
-            <button type="button" onClick="{{ otherId }}" style="min-height:56px;border:1.5px solid #002858;border-radius:8px;background:transparent;color:#002858;font-size:17px;font-weight:800;cursor:pointer" style-hover="background:#F0F2F6">{{ t.actions.other }}</button>
-          </div>
-        </div>
-      </sc-if>
-      <sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}">
-        <div style="display:grid;gap:10px">
-          <button type="button" onClick="{{ otherId }}" style="min-height:56px;border:1.5px solid #002858;border-radius:8px;background:transparent;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.actions.other }}</button>
-          <button type="button" onClick="{{ resetToast }}" style="min-height:56px;border:0;border-radius:8px;background:#00B0A8;color:#002858;font-size:17px;font-weight:800;cursor:pointer">{{ t.actions.nextVisitor }}</button>
-        </div>
-      </sc-if>
+<sc-if value="{{ is.pass }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="04 Time passes" style="display:flex;flex-direction:column;gap:18px;padding:26px 20px 36px;animation:olti-fade .3s both">
+<div style="display:flex;align-items:center;gap:10px"><h2 style="margin:0;flex:1;font-size:25px;font-weight:700;color:var(--navy)">{{ v.auto.title }}</h2><span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--warnSoft);color:var(--amber)"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ v.ui.illustrative }}</span></div>
+<p style="margin:-8px 0 0;font-size:15px;color:var(--muted)">{{ v.auto.hint }}</p>
+<div style="display:flex;align-items:center;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)">
+<div style="flex:1;min-width:0">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:48px;line-height:1;font-weight:600;color:var(--coral)">{{ bigNum }}</div>
+<div style="margin-top:6px;font-size:14.5px;line-height:1.4;font-weight:600;color:var(--ink)">{{ bigLabel }}</div>
+<div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)">{{ paperLabel }}</div>
+</div>
+<div aria-hidden="true" style="position:relative;flex:none;width:72px;height:104px">
+<sc-for list="{{ papers }}" as="p" hint-placeholder-count="3"><span style="position:absolute;inset-inline-start:8px;bottom:{{ p.b }};width:54px;height:66px;background:var(--sheet);border:1px solid var(--track);border-radius:3px;transform:rotate({{ p.r }});box-shadow:0 1px 2px rgba(0,0,0,.08)"><span style="position:absolute;left:8px;right:8px;top:10px;height:2px;background:var(--track)"></span><span style="position:absolute;left:8px;right:16px;top:18px;height:2px;background:var(--track)"></span></span></sc-for>
+</div>
+</div>
+<div style="display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:var(--muted);background:var(--surface2);border-radius:12px;padding:8px 10px"><span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--muted);flex:none;margin-top:5px;opacity:.6"></span><span style="flex:1">{{ v.parallel.label }} <b style="color:var(--ink);font-weight:600">{{ parallelNow }}</b></span><span style="flex:none;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--warnSoft);color:var(--amber)">{{ v.ui.illustrative }}</span></div>
+<div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:10px">
+<button type="button" onClick="{{ toggleAuto }}" aria-pressed="{{ auto }}" style="min-height:48px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:15px;font-weight:700;cursor:pointer">{{ autoLabel }}</button>
+<button type="button" onClick="{{ stepTime }}" style="min-height:48px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;cursor:pointer">{{ v.auto.step }}</button>
+</div>
+<button type="button" onClick="{{ skipTime }}" style="align-self:center;min-height:44px;padding:0 8px;border:0;background:transparent;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px">{{ v.auto.skip }}</button>
+<div aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">{{ liveMsg }}</div>
+</section>
+</sc-if>
 
-      <p style="margin:0;font-size:12.5px;line-height:1.55;color:#5B6578">{{ disclaimerRich }}</p>
-    </section>
-  </sc-if>
-  </main>
+<sc-if value="{{ is.reflect }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="05 Reflect" style="display:flex;flex-direction:column;gap:18px;padding:32px 20px 40px;animation:olti-fade .3s both">
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk)">{{ v.reflect.title }}</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:64px;line-height:.9;font-weight:600;color:var(--coral)" aria-hidden="true">{{ reflectYear }}</div>
+<h2 style="margin:0;font-size:24px;line-height:1.3;font-weight:700;color:var(--navy);text-wrap:balance">{{ reflectQ }}</h2>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ reflectOpts }}" as="o" hint-placeholder-count="4">
+<button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="min-height:48px;padding:0 16px;border-radius:999px;border:1.5px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};font-size:15px;font-weight:600;cursor:pointer">{{ o.text }}</button>
+</sc-for>
+</div>
+<button type="button" onClick="{{ endReflect }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ v.reflect.cont }} →</button>
+</section>
+</sc-if>
 
-  <footer style="margin-top:auto;background:#002858;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
-    <div style="display:flex;align-items:center;gap:12px"><img src="assets/yplus-logo.png" alt="Y+" style="height:28px;width:auto;background:#fff;border-radius:4px;padding:3px 5px"><span data-latin style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B8C4D8">Awareness → Understanding → Action</span></div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#7FD9D4">{{ t.footer.follow }}</span>
-      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
-        <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
-          <a href="{{ s.url }}" target="_blank" rel="noopener" style="min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap" style-hover="background:#fff;color:#002858">{{ s.name }}</a>
-        </sc-for>
-      </div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:16px">
-      <div style="font-size:14px;font-weight:600">{{ t.footer.story }} <a href="{{ contact.story }}" target="_blank" rel="noopener" style="color:#7FD9D4;font-weight:800;text-decoration:underline;text-underline-offset:3px">{{ t.footer.share }} ↗</a></div>
-      <div style="display:flex;gap:14px;font-size:13px"><a href="{{ contact.contact }}" target="_blank" rel="noopener" style="color:#fff;font-weight:600">{{ t.footer.contact }}</a><a href="{{ contact.site }}" target="_blank" rel="noopener" style="color:#B8C4D8;font-weight:600">yplus.ps</a></div>
-    </div>
-  </footer>
+<sc-if value="{{ is.summary }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="06 Summary" style="display:flex;flex-direction:column;gap:26px;padding:28px 20px 44px;animation:olti-fade .3s both">
+<div>
+<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk);margin-bottom:10px">{{ t.end.eyebrow }}</div>
+<h2 style="margin:0;font-size:clamp(28px,8vw,44px);line-height:1.1;font-weight:700;color:var(--navy);letter-spacing:-.02em;text-wrap:balance">{{ t.end.title }}</h2>
+<p style="margin:14px 0 0;font-size:18px;line-height:1.5;text-wrap:pretty">{{ t.end.aha }}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)">{{ t.summary.together }}</div><div style="margin-top:6px;font-size:17px;font-weight:700;color:var(--navy);line-height:1.2">{{ t.summary.years }}</div></div>
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)">{{ t.summary.living }}</div><div style="margin-top:6px;font-size:17px;font-weight:700;color:var(--navy);line-height:1.2">{{ livingLabel }}</div></div>
+<div style="grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)">
+<div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)">{{ t.summary.cost }} · {{ costCount }} {{ t.summary.choices }}</div>
+<div style="position:relative;margin:30px 6px 4px;height:8px;border-radius:4px;background:var(--coral)">
+<sc-for list="{{ sumMarks }}" as="m" hint-placeholder-count="5"><span aria-hidden="true" style="position:absolute;top:50%;inset-inline-start:{{ m.left }};width:{{ m.size }};height:{{ m.size }};transform:translate(-50%,-50%);border-radius:50%;background:{{ m.bg }};border:2px solid var(--surface);transition:all .2s"></span></sc-for>
+<span style="position:absolute;bottom:14px;inset-inline-start:{{ sumSelLeft }};transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--navy);white-space:nowrap">{{ sumSelYear }}</span>
+</div>
+<div style="display:flex;justify-content:space-between;margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)"><span>0</span><span>12</span></div>
+<p style="margin:0 0 8px;font-size:12.5px;color:var(--muted)">{{ v.ui.sumHint }}</p>
+<ol style="margin:0;padding:0;list-style:none;display:grid;gap:6px">
+<sc-for list="{{ sumItems }}" as="p" hint-placeholder-count="4">
+<li><button type="button" onClick="{{ p.pick }}" aria-pressed="{{ p.on }}" style="width:100%;display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;align-items:start;text-align:start;padding:10px 12px;border-radius:14px;border:1.5px solid {{ p.border }};background:{{ p.bg }};cursor:pointer;color:var(--ink)"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:var(--tealInk)">{{ p.year }}</span><span><span style="display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ p.stage }}</span><span style="display:block;font-size:14px;line-height:1.4;margin-top:2px">{{ p.text }}</span></span></button></li>
+</sc-for>
+</ol>
+</div>
+</div>
+<p style="margin:0;font-size:16px;line-height:1.55;text-wrap:pretty">{{ t.end.message }}</p>
+<div style="display:flex;align-items:center;gap:14px;background:var(--deep);border-radius:18px;padding:16px 18px;color:var(--onDeep)">
+<svg width="48" height="48" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#E8704F" stroke-width="3"></circle><path d="M16 27l7 7 14-15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div><div style="font-size:17px;font-weight:700;line-height:1.15">{{ t.badge.title }}</div><div style="margin-top:4px;font-size:12.5px;color:var(--deepMuted)">{{ t.badge.sub }}</div></div>
+</div>
+<button type="button" onClick="{{ toRemember }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ v.remember.cta }} →</button>
+<div>
+<h3 style="margin:0 0 8px;font-size:21px;font-weight:700;color:var(--navy)">{{ t.reality.title }}</h3>
+<p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--muted)">{{ t.reality.intro }}</p>
+<div style="display:grid;gap:10px">
+<sc-for list="{{ t.reality.items }}" as="r" hint-placeholder-count="3">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px"><div style="font-size:16px;font-weight:700;color:var(--navy)">{{ r.title }}</div><p style="margin:6px 0 0;font-size:14.5px;line-height:1.5">{{ r.text }}</p></div>
+</sc-for>
+</div>
+</div>
+<div>
+<h3 style="margin:0 0 8px;font-size:21px;font-weight:700;color:var(--navy)">{{ t.realStories.title }}</h3>
+<p style="margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--muted)">{{ t.realStories.intro }}</p>
+<div style="display:grid;gap:10px">
+<sc-for list="{{ realStories }}" as="s" hint-placeholder-count="3">
+<a href="{{ s.url }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;background:var(--soft);border-radius:18px;padding:16px 18px">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--tealInk)">{{ s.tag }}</div>
+<div style="margin-top:6px;font-size:17px;font-weight:700;color:var(--navy);line-height:1.25">{{ s.title }}</div>
+<p style="margin:6px 0 10px;font-size:14.5px;line-height:1.5">{{ s.text }}</p>
+<span style="font-size:13px;font-weight:600;color:var(--tealInk);text-decoration:underline;text-underline-offset:3px">{{ t.realStories.link }} ↗</span>
+</a>
+</sc-for>
+</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px">
+<h3 style="margin:0 0 8px;font-size:17px;font-weight:700;color:var(--navy)">{{ t.sources.title }}</h3>
+<p style="margin:0 0 10px;font-size:13.5px;line-height:1.5;color:var(--muted)">{{ t.sources.note }}</p>
+<ul style="margin:0;padding:0;list-style:none;display:grid;gap:8px">
+<sc-for list="{{ sourceItems }}" as="s" hint-placeholder-count="3"><li style="font-size:14px;line-height:1.5"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.text }}</a></li></sc-for>
+</ul>
+<div style="margin-top:10px;font-size:12px;color:var(--muted)">{{ sourceCheckedLabel }}</div>
+</div>
+<p data-rich style="margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)">{{ disclaimerRich }}</p>
+</section>
+</sc-if>
 
-  <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
-    <div role="status" aria-live="polite" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#002858;color:#fff;padding:10px 16px;border-radius:6px;font-size:14px;font-weight:600;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);z-index:50">{{ toast }}</div>
-  </sc-if>
+<sc-if value="{{ is.remember }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="07 What to remember" style="display:flex;flex-direction:column;gap:22px;padding:30px 20px 44px;animation:olti-fade .3s both">
+<div><div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--tealInk)">{{ toolTitle }}</div><h2 style="margin:6px 0 0;font-size:22px;line-height:1.3;font-weight:700;color:var(--navy)">{{ v.remember.title }}</h2></div>
+<ol style="margin:0;padding:0;list-style:none;display:grid;gap:12px">
+<sc-for list="{{ remItems }}" as="r" hint-placeholder-count="5">
+<li style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start"><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:var(--coral);color:#002856;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:800">{{ r.n }}</span><span style="font-size:15px;line-height:1.55;padding-top:2px">{{ r.text }}</span></li>
+</sc-for>
+</ol>
+<div style="background:#002856;color:#fff;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+<div><b style="display:block;color:#22C7C4;font-size:15px;margin-bottom:2px">{{ v.remember.doTitle }}</b><span style="font-size:15px;line-height:1.55">{{ v.remember.doText }}</span></div>
+<sc-if value="{{ isOnline }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ email }}" style="min-height:44px;padding:8px 14px;border:0;border-radius:12px;background:#FFFFFF;color:#002856;font-size:14px;font-weight:700;align-self:flex-start;cursor:pointer">{{ v.remember.repr }} ↗</button></sc-if>
+</div>
+<div style="display:grid;gap:10px">
+<sc-if value="{{ isOnline }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ share }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--action);color:var(--onAction);font-size:16px;font-weight:700;cursor:pointer">{{ v.remember.share }}</button></sc-if>
+<button type="button" onClick="{{ playAgain }}" style="min-height:48px;padding:12px 20px;border:1.5px solid var(--line);border-radius:14px;background:transparent;color:var(--ink);font-size:16px;font-weight:700;cursor:pointer">↺ {{ v.remember.again }}</button>
+<sc-if value="{{ isKiosk }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ resetToast }}" style="min-height:48px;padding:12px 20px;border:0;border-radius:14px;background:var(--primary);color:var(--onPrimary);font-size:16px;font-weight:700;cursor:pointer">{{ t.actions.nextVisitor }}</button></sc-if>
+<button type="button" onClick="{{ toSummary }}" style="min-height:48px;border:0;background:transparent;color:var(--muted);font-size:15px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px">{{ backArrow }} {{ v.remember.back }}</button>
+</div>
+</section>
+</sc-if>
+</main>
+
+<footer style="margin-top:auto;background:#002856;color:#fff;padding:24px 20px 28px;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:12px"><img src="assets/yplus-logo.png" alt="YPlus" style="height:28px;width:auto;display:block;background:#fff;border-radius:6px;padding:3px 5px"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#B8C4D8">Awareness → Understanding → Action</span></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#7FE0DE">{{ t.footer.follow }}</span>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+<sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
+<a href="{{ s.url }}" target="_blank" rel="noopener" style="min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;font-size:13px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap" style-hover="background:#fff;color:#002856">{{ s.name }}</a>
+</sc-for>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.15);padding-top:16px">
+<div style="font-size:14px;font-weight:500">{{ t.footer.story }} <a href="{{ contact.story }}" target="_blank" rel="noopener" style="color:#7FE0DE;font-weight:700;text-decoration:underline;text-underline-offset:3px">{{ t.footer.share }} ↗</a></div>
+<div style="display:flex;gap:14px;font-size:13px"><a href="{{ contact.contact }}" target="_blank" rel="noopener" style="color:#fff;font-weight:600">{{ t.footer.contact }}</a><a href="{{ contact.site }}" target="_blank" rel="noopener" style="color:#B8C4D8;font-weight:600">yplus.ps</a></div>
+</div>
+</footer>
+
+<sc-if value="{{ hasGloss }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:60;display:flex;justify-content:center;align-items:flex-end">
+<div onClick="{{ closeGloss }}" style="position:absolute;inset:0;background:rgba(0,20,45,.35)"></div>
+<div role="dialog" aria-modal="true" aria-labelledby="olti-gl-title" style="position:relative;width:100%;max-width:560px;background:var(--surface);color:var(--ink);border-radius:22px 22px 0 0;border-top:1px solid var(--line);padding:18px 18px 24px;box-shadow:0 -12px 40px -12px rgba(0,0,0,.35);animation:olti-sheet .22s ease-out both">
+<div aria-hidden="true" style="width:40px;height:4px;border-radius:9px;background:var(--line);margin:0 auto 12px"></div>
+<div style="display:flex;align-items:center;gap:12px">
+<h3 id="olti-gl-title" style="margin:0;flex:1;font-size:20px;font-weight:700;color:var(--navy);text-decoration:underline;text-decoration-color:var(--coral);text-decoration-thickness:3px;text-underline-offset:5px">{{ gloss.term }}</h3>
+<button type="button" onClick="{{ closeGloss }}" ref="{{ glossCloseRef }}" style="min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:14px;background:transparent;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer">{{ v.ui.close }}</button>
+</div>
+<p style="margin:14px 0 0;font-size:16px;line-height:1.6">{{ gloss.def }}</p>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#002856;color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;font-weight:600;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);z-index:70">{{ toast }}</div>
+</sc-if>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;gaId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;G-NMEYZ7ZWB5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Analytics&quot;},&quot;gtmId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Analytics&quot;},&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;online&quot;,&quot;kiosk&quot;],&quot;default&quot;:&quot;online&quot;,&quot;tsType&quot;:&quot;'online'|'kiosk'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;it&quot;,&quot;fr&quot;,&quot;ar&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;kioskIdleSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:240,&quot;min&quot;:30,&quot;max&quot;:900,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;siteUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;online&quot;,&quot;kiosk&quot;],&quot;default&quot;:&quot;online&quot;,&quot;tsType&quot;:&quot;'online'|'kiosk'&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ar&quot;,&quot;fr&quot;,&quot;it&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;kioskIdleSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:240,&quot;min&quot;:30,&quot;max&quot;:900,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;siteUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://yplus.ps/TwoIDs/&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Deployment&quot;},&quot;gaId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;G-NMEYZ7ZWB5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Analytics&quot;}}">
 class Component extends DCLogic {
-  state = { data: null, lang: 'en', screen: 'intro', id: 'blue', step: 0, year: 0, living: 'apart', costs: [], picked: null, howOpen: false, pathOpen: false, toast: '', flipped: {}, sc: {} };
-  LANGS = [['en','EN'],['it','IT'],['fr','FR'],['ar','ع']];
-  constructor(p) {
-    super(p);
-    // Live tickers: kept as components so their timers survive re-renders
-    this.Months = () => { const [m, setM] = React.useState(1); React.useEffect(() => { const id = setInterval(() => setM(x => x + 1), 900); return () => clearInterval(id); }, []); return React.createElement('span', null, m); };
-    this.Clock = () => { const [s, setS] = React.useState(0); React.useEffect(() => { const id = setInterval(() => setS(x => x + 1), 1000); return () => clearInterval(id); }, []); const mm = String(Math.floor(s / 60)).padStart(2, '0'); return React.createElement('span', null, `03:${mm}:${String(s % 60).padStart(2, '0')}`); };
-  }
-  loadGtm() {
-    if (document.getElementById('olti-gtm')) return;
-    window.dataLayer = window.dataLayer || [];
-    const q = new URLSearchParams(location.search);
-    const gtm = (this.props.gtmId || q.get('gtm') || '').trim(), ga = (this.props.gaId ?? 'G-NMEYZ7ZWB5').trim();
-    const s = document.createElement('script'); s.id = 'olti-gtm'; s.async = true;
-    if (/^GTM-[A-Z0-9]+$/i.test(gtm)) { window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' }); s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtm); }
-    else if (/^G-[A-Z0-9]+$/i.test(ga)) {
-      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date()); window.gtag('config', ga, { anonymize_ip: true, allow_google_signals: false });
-      this.gaId = ga; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga);
-    } else return;
-    document.head.appendChild(s);
-  }
-  componentDidMount() {
-    this.loadGtm();
-    fetch('toolkit-data.json', { cache: 'no-store' }).then(r => r.json()).then(data => {
-      const q = new URLSearchParams(location.search).get('lang');
-      let saved = null; try { saved = localStorage.getItem('olti_lang'); } catch (e) {}
-      const lang = [q, this.props.defaultLang, saved].find(l => l && data.i18n[l]) || 'en';
-      this.setState({ data, lang }, () => { this.applyLang(); this.track('load'); });
-    });
-    this.idle = () => {
-      clearTimeout(this.idleTimer);
-      if (this.mode() !== 'kiosk') return;
-      this.idleTimer = setTimeout(() => { if (this.state.screen !== 'intro') this.doReset(false); }, (this.props.kioskIdleSeconds ?? 240) * 1000);
-    };
-    ['click', 'touchstart', 'keydown'].forEach(e => window.addEventListener(e, this.idle, { passive: true }));
-    this.idle();
-  }
-  componentWillUnmount() { clearTimeout(this.idleTimer); ['click', 'touchstart', 'keydown'].forEach(e => window.removeEventListener(e, this.idle)); }
-  mode() { return this.props.mode ?? 'online'; }
-  applyLang() { document.documentElement.lang = this.state.lang; document.documentElement.dir = this.state.lang === 'ar' ? 'rtl' : 'ltr'; const t = this.t(); if (t) document.title = t.intro.title.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); }
-  t() { return this.state.data ? this.state.data.i18n[this.state.lang] : null; }
-  track(ev, d = {}) {
-    const p = { language: this.state.lang, mode: this.mode(), selected_id: this.state.id, chapter: this.state.step, ...d };
-    window.dataLayer = window.dataLayer || [];
-    if (this.gaId && window.gtag) window.gtag('event', 'olti_' + ev, p); else window.dataLayer.push({ event: 'olti_' + ev, ...p });
-  }
-  rich(html) { return html ? React.createElement('span', { dangerouslySetInnerHTML: { __html: html } }) : null; }
-  toastMsg(m) { this.setState({ toast: m }); clearTimeout(this.toastT); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2400); }
-  top() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  setLang(lang) { try { localStorage.setItem('olti_lang', lang); } catch (e) {} this.setState({ lang }, () => { this.applyLang(); this.track('language_change'); }); }
-  start(id) { this.setState({ id, screen: 'story', step: 0, year: 0, living: 'apart', costs: [], picked: null, pathOpen: false, flipped: {}, sc: {} }, () => { this.top(); this.track('story_start', { selected_id: id }); }); }
-  doReset(toast) { this.setState({ screen: 'intro', step: 0, year: 0, living: 'apart', costs: [], picked: null, howOpen: false, pathOpen: false, flipped: {}, sc: {} }, () => { this.top(); if (toast) this.toastMsg(this.t().toast.reset); this.track('reset'); }); }
-  sc(patch) { this.setState(s => ({ sc: { ...s.sc, ...patch } })); }
-  pick(i) {
-    if (this.state.picked != null) return;
-    const ch = this.t().chapters[this.state.step].choices[i];
-    this.setState(s => ({ picked: i, living: ch.living || s.living, costs: [...s.costs, { chapter: s.step, choice: i }] }), () => this.track('choice', { chapter: this.state.step, choice: i }));
-  }
-  next() {
-    const ch = this.t().chapters[this.state.step].choices[this.state.picked];
-    if (ch.next === 'end') return this.finish();
-    this.setState({ step: ch.next, picked: null, year: this.t().chapters[ch.next].year, sc: {} }, this.top);
-  }
-  finish() {
-    this.setState({ screen: 'end', year: 12 }, this.top);
-    this.track('story_complete', { selected_id: this.state.id, choices: this.state.costs.length });
-    try {
-      const rw = this.state.data.reward, badges = JSON.parse(localStorage.getItem(rw.badgeStorage) || '[]');
-      if (!badges.includes(rw.badgeId)) { badges.push(rw.badgeId); localStorage.setItem(rw.badgeStorage, JSON.stringify(badges)); this.track('badge_earned'); }
-      const w = JSON.parse(localStorage.getItem(rw.progressStorage) || '[]'); if (!w.includes(rw.toolId)) { w.push(rw.toolId); localStorage.setItem(rw.progressStorage, JSON.stringify(w)); }
-    } catch (e) {}
-  }
-  action(kind) { this.track('action_started', { kind }); try { const k = this.state.data.reward.actionStorage; localStorage.setItem(k, String(+(localStorage.getItem(k) || 0) + 1)); } catch (e) {} }
-  email() { this.action('email'); const m = this.t().mail; location.href = `mailto:?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(m.body)}`; this.track('email_action'); }
-  async share() {
-    this.action('share'); const url = this.props.siteUrl || location.href.split('?')[0];
-    const data = { title: document.title, text: this.t().intro.lede, url };
-    try { if (navigator.share) { await navigator.share(data); this.track('share_native'); return; } } catch (e) { return; }
-    try { await navigator.clipboard.writeText(url); this.toastMsg(this.t().toast.copied); this.track('share_copy'); } catch (e) {}
-  }
-  buildScene(t, s) {
-    const type = this.state.data.meta.sceneMap[s.step] || 'none', S = t.scenes, sc = s.sc, base = { title: S[type] ? S[type].title : '', hint: S[type] ? S[type].hint : '' };
-    const on = { border: '#002858', bg: '#002858', fg: '#fff' }, off = { border: '#C9CFD9', bg: '#fff', fg: '#0F1B33' };
-    if (type === 'distance') { const pos = sc.pos ?? 0; return { ...base, isDistance: true, pos, done: pos >= 97, onSlide: e => this.sc({ pos: +e.target.value }) }; }
-    if (type === 'calendar') { const picks = sc.days || []; const done = picks.length >= 2; return { ...base, isCalendar: true, done, days: Array.from({ length: 14 }, (_, i) => { const n = i + 1, o = picks.includes(n); return { n, on: o, ...(o ? on : off), pick: () => { if (done || o) return; this.sc({ days: [...picks, n] }); } }; }) }; }
-    if (type === 'housing') { const z = (i, key) => { const o = s.picked === i, dim = s.picked != null && !o; return { on: o, icon: o ? '⌂' : '○', bg: o ? '#002858' : (key === 'j' ? '#EAF1FC' : key === 'w' ? '#EAF6EE' : '#fff'), fg: o ? '#fff' : '#0F1B33', opacity: dim ? .4 : 1, pick: () => this.pick(i) }; }; return { ...base, isHousing: true, locked: s.picked != null, zoneJ: z(0, 'j'), zoneW: z(1, 'w'), zoneA: z(2, 'a') }; }
-    if (type === 'documents') { const got = sc.docs || []; const items = S.documents.items; const done = got.length >= items.length; return { ...base, isDocuments: true, done, fill: Math.round(got.length / items.length * 100) + '%', docCount: `${got.length} / ${items.length}`, docs: items.map((text, i) => { const o = got.includes(i); return { text, on: o, mark: o ? '✓' : '+', ...(o ? on : off), pick: () => { if (!o) this.sc({ docs: [...got, i] }); } }; }) }; }
-    if (type === 'form') { const got = sc.fields || []; const f = S.form.fields; const done = got.length >= f.length; return { ...base, isForm: true, done, fields: f.map(([label, val], i) => { const o = got.includes(i), last = i === f.length - 1; return { label, on: o, value: o ? val : '', fg: o && last ? '#B8412D' : '#0F1B33', border: o ? '#C9CFD9' : '#E3E6EC', bg: o ? '#fff' : '#F7F8FA', line: o ? 'transparent' : '#C9CFD9', anim: o ? 'olti-fade .3s both' : 'none', pick: () => { if (!o) this.sc({ fields: [...got, i] }); } }; }) }; }
-    if (type === 'clock') return { ...base, isClock: true, done: true };
-    if (type === 'timeline') { const past = s.costs.slice(); const sel = sc.year ?? (past.length - 1); const chOf = c => t.chapters[c.chapter]; return { ...base, isTimeline: true, done: true, years: past.map((c, i) => { const o = i === sel; return { n: chOf(c).year, on: o, ...(o ? on : off), pick: () => this.sc({ year: i }) }; }), memTitle: past[sel] ? chOf(past[sel]).title : '', memText: past[sel] ? chOf(past[sel]).choices[past[sel].choice].log : '' }; }
-    return { ...base, done: true };
-  }
-  renderVals() {
-    const s = this.state, t = this.t(), data = s.data;
-    const isKiosk = this.mode() === 'kiosk';
-    const base = { dir: s.lang === 'ar' ? 'rtl' : 'ltr', lang: s.lang, brand: data ? data.meta.brand : 'YPlus · Communicating Palestine', isKiosk, isOnline: !isKiosk,
-      langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? '#002858' : 'transparent', fg: s.lang === code ? '#fff' : '#5B6578', pick: () => this.setLang(code) })),
-      inIntro: s.screen === 'intro', inStory: s.screen === 'story', inEnd: s.screen === 'end', hasToast: !!s.toast, toast: s.toast, t: t || {}, scene: {}, idCards: [], contact: data ? data.meta.contact : {}, social: data ? data.meta.contact.social.map(([name, url]) => ({ name, url })) : [] };
-    if (!t) return base;
-    const blue = s.id === 'blue';
-    const chapter = t.chapters[s.step], ch = s.picked != null ? chapter.choices[s.picked] : null;
-    const livingLabel = { apart: t.common.livingApart, jerusalem: t.common.livingJerusalem, westBank: t.common.livingWestBank }[s.living];
-    const cons = ch ? (blue ? ch.consequenceBlue : ch.consequenceGreen) || ch.consequence : '';
-    const src = data.sources, srcMap = [{ url: src.law, name: 'Knesset' }, { url: src.hamokedDelay, name: 'HaMoked' }, { url: src.btselemResidency, name: "B'Tselem" }];
-    const factSrc = [src.law, src.btselemFamilies, src.law, src.law, src.hamokedChildren, src.btselemFamilies, src.btselemFamilies][s.step] || src.law;
-    const factName = factSrc.includes('knesset') ? 'Knesset' : factSrc.includes('hamoked') ? 'HaMoked' : "B'Tselem";
-    const progress = Math.round(s.step / (t.chapters.length - 1) * 100);
-    const scene = this.buildScene(t, s);
-    const pathItems = s.costs.map((c, i) => ({ year: `${t.common.year} ${t.chapters[c.chapter].year}`, text: t.chapters[c.chapter].choices[c.choice].log, line: i === s.costs.length - 1 ? 'transparent' : '#C9CFD9' }));
-    const cardDefs = [['blue', '#2F6FD8', 'linear-gradient(160deg,#2F6FD8,#1E4FB8)'], ['green', '#2F9E5B', 'linear-gradient(160deg,#2F9E5B,#1F7A44)']];
-    return { ...base, t, scene,
-      idCards: cardDefs.map(([k, solid, bg]) => ({ chip: t.intro[k + 'Chip'], title: t.intro[k + 'Title'], desc: t.intro[k + 'Desc'], solid, bg, transform: s.flipped[k] ? 'rotateY(180deg)' : 'rotateY(0deg)', back: t.scenes.back[k].map(([kk, v]) => ({ k: kk, v })), flip: () => this.setState(x => ({ flipped: { ...x.flipped, [k]: !x.flipped[k] } })), start: () => this.start(k) })),
-      titleRich: this.rich(t.intro.title), contextRich: this.rich(t.intro.context), disclaimerRich: this.rich(t.end.disclaimer), storyRich: this.rich(chapter.text),
-      howOpen: s.howOpen, howLabel: s.howOpen ? t.badge.howClose : t.intro.how, toggleHow: () => { this.setState(x => ({ howOpen: !x.howOpen })); if (!s.howOpen) this.track('how_open'); },
-      howSteps: t.how.steps.map((text, i) => ({ n: i + 1, text })),
-      pathOpen: s.pathOpen, pathChevron: s.pathOpen ? 'rotate(180deg)' : 'rotate(0deg)', togglePath: () => this.setState(x => ({ pathOpen: !x.pathOpen })), pathItems,
-      youBg: blue ? '#1E4FB8' : '#1F7A44', nourBg: blue ? '#1F7A44' : '#1E4FB8', youColor: blue ? '#1E4FB8' : '#1F7A44', nourColor: blue ? '#1F7A44' : '#1E4FB8',
-      youPlace: blue ? t.common.jerusalem : t.common.westBank, nourPlace: blue ? t.common.westBank : t.common.jerusalem,
-      yearLabel: `${t.common.year} ${s.screen === 'end' ? 12 : chapter.year}`, yearNum: String(chapter.year).padStart(2, '0'), chapterCount: `${s.step + 1}/${t.chapters.length}`,
-      livingLabel, costCount: s.costs.length, progress, progressPct: progress + '%',
-      monthsTicker: scene.isDocuments && scene.done ? React.createElement(this.Months) : null, clockTicker: scene.isClock ? React.createElement(this.Clock) : null,
-      choicesVisible: !!scene.done && !scene.isHousing,
-      chapter, hasPicked: ch != null, pickedLog: ch ? ch.log : '', consequence: cons, hasFact: !!(ch && ch.fact), fact: ch ? ch.fact : '', factSourceUrl: factSrc, factSourceName: factName,
-      sourceCheckedLabel: `${({ en: 'Sources checked', it: 'Fonti verificate il', fr: 'Sources vérifiées le', ar: 'تم التحقق من المصادر في' })[s.lang]} ${data.meta.sourceChecked}`,
-      choices: chapter.choices.map((c, i) => { const active = s.picked === i, dim = s.picked != null && !active; return { text: c.text, pick: () => this.pick(i), disabled: s.picked != null, active, arrow: active ? '✓' : (s.lang === 'ar' ? '←' : '→'), border: active ? '#002858' : '#C9CFD9', bg: active ? '#002858' : '#fff', fg: active ? '#fff' : '#0F1B33', opacity: dim ? .45 : 1 }; }),
-      next: () => this.next(), nextLabel: ch && ch.next === 'end' ? t.common.finish : t.common.continue,
-      reset: () => this.doReset(false), confirmReset: () => { if (s.costs.length === 0 || window.confirm(t.badge.confirmReset)) this.doReset(false); }, resetToast: () => this.doReset(true), otherId: () => this.start(blue ? 'green' : 'blue'),
-      email: () => this.email(), share: () => this.share(),
-      realStories: t.realStories.items.map(i => ({ ...i, url: src[i.url], tag: t.common.documented })),
-      sourceItems: t.sources.items.map((text, i) => ({ text, url: srcMap[i].url })) };
-  }
+INIT = { screen: 'intro', step: 0, months: 0, delta: 0, pending: null, living: 'apart', costs: [], picked: null, hesitate: false, expired: false, whyOpen: false, pathOpen: false, flipped: {}, sc: {}, auto: false, reflectY: null, reflected: {}, rpick: null, cd: null, sumSel: null, gloss: null, fate: false, liveMsg: '' };
+state = { data: null, v2: null, lang: 'en', id: 'green', journey: 'full', howOpen: false, toast: '', theme: null, ...this.INIT };
+LANGS = [['en','EN'],['ar','ع'],['fr','FR'],['it','IT']];
+STAGE_YEARS = [0, 1, 2, 3, 5, 8, 12];
+LINK_STYLE = 'border:0;background:none;padding:0;margin:0;font:inherit;font-weight:600;color:inherit;cursor:help;text-decoration:underline dotted 2px;text-decoration-color:#E8704F;text-underline-offset:4px';
+glossCloseRef = React.createRef();
+loadGa() {
+if (document.getElementById('olti-ga')) return;
+window.dataLayer = window.dataLayer || [];
+const ga = (this.props.gaId ?? 'G-NMEYZ7ZWB5').trim(); if (!/^G-[A-Z0-9]+$/i.test(ga)) return;
+window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+window.gtag('js', new Date()); window.gtag('config', ga, { anonymize_ip: true, allow_google_signals: false }); this.gaId = ga;
+const s = document.createElement('script'); s.id = 'olti-ga'; s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga); document.head.appendChild(s);
+}
+componentDidMount() {
+this.loadGa();
+let theme = null; try { theme = localStorage.getItem('olti_theme'); } catch (e) {}
+this.setState({ theme }, () => this.applyTheme());
+Promise.all([fetch('toolkit-data.json', { cache: 'no-store' }).then(r => r.json()), fetch('olti-v2.json', { cache: 'no-store' }).then(r => r.json())]).then(([data, v2]) => {
+const q = new URLSearchParams(location.search).get('lang');
+let saved = null; try { saved = localStorage.getItem('olti_lang'); } catch (e) {}
+const lang = [q, this.props.defaultLang, saved].find(l => l && data.i18n[l] && v2[l]) || 'en';
+this.setState({ data, v2, lang }, () => { this.applyLang(); this.track('load'); });
+}).catch(err => console.warn('[olti] data load failed:', err && err.message));
+this.idle = () => { clearTimeout(this.idleT); if (this.mode() !== 'kiosk') return; this.idleT = setTimeout(() => { if (this.state.screen !== 'intro') this.doReset(false); }, (this.props.kioskIdleSeconds ?? 240) * 1000); };
+this.onKey = e => { if (e.key === 'Escape' && this.state.gloss) this.setState({ gloss: null }); };
+['click', 'touchstart', 'keydown'].forEach(e => window.addEventListener(e, this.idle, { passive: true }));
+window.addEventListener('keydown', this.onKey);
+this.idle();
+}
+componentWillUnmount() { this.stopAuto(); this.stopCd(); clearTimeout(this.idleT); ['click', 'touchstart', 'keydown'].forEach(e => window.removeEventListener(e, this.idle)); window.removeEventListener('keydown', this.onKey); }
+componentDidUpdate(pp, ps) {
+const s = this.state;
+if (s.auto && s.screen === 'pass') { if (!this.autoT) this.autoT = setInterval(() => this.passStep(), (s.v2 && s.v2.meta.autoMs) || 1500); } else this.stopAuto();
+const needCd = s.data && s.screen === 'story' && this.sceneType() === 'clock' && s.picked == null;
+if (needCd && !this.cdT) {
+const total = s.v2.meta.countdownSeconds;
+this.setState({ cd: total });
+this.cdT = setInterval(() => { const n = (this.state.cd ?? total) - 1; if (n <= 0) { this.stopCd(); this.setState({ cd: 0 }); this.expire(); } else this.setState({ cd: n }); }, 1000);
+} else if (!needCd && this.cdT) this.stopCd();
+if (s.gloss && !ps.gloss && this.glossCloseRef.current) this.glossCloseRef.current.focus();
+if (!s.gloss && ps.gloss && this.glossReturn) { try { this.glossReturn.focus(); } catch (e) {} this.glossReturn = null; }
+}
+stopAuto() { if (this.autoT) { clearInterval(this.autoT); this.autoT = null; } }
+stopCd() { if (this.cdT) { clearInterval(this.cdT); this.cdT = null; } }
+mode() { return this.props.mode ?? (new URLSearchParams(location.search).get('mode') === 'kiosk' ? 'kiosk' : 'online'); }
+t() { return this.state.data ? this.state.data.i18n[this.state.lang] : null; }
+v() { return this.state.v2 ? this.state.v2[this.state.lang] : null; }
+isDark() { return this.state.theme ? this.state.theme === 'dark' : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); }
+applyTheme() { const r = document.documentElement; if (this.state.theme) r.setAttribute('data-theme', this.state.theme); else r.removeAttribute('data-theme'); }
+toggleTheme() { const theme = this.isDark() ? 'light' : 'dark'; try { localStorage.setItem('olti_theme', theme); } catch (e) {} this.setState({ theme }, () => { this.applyTheme(); this.track('theme', { theme }); }); }
+applyLang() { const r = document.documentElement; r.lang = this.state.lang; r.dir = this.state.lang === 'ar' ? 'rtl' : 'ltr'; const t = this.t(); if (t) document.title = t.intro.title.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() + ' · YPlus'; }
+track(ev, d = {}) {
+const s = this.state, p = { language: s.lang, mode: this.mode(), selected_id: s.id, journey: s.journey, chapter: s.step, year: Math.floor(s.months / 12), ...d };
+window.dataLayer = window.dataLayer || [];
+if (this.gaId && window.gtag) window.gtag('event', 'olti_' + ev, p); else window.dataLayer.push({ event: 'olti_' + ev, ...p });
+}
+rich(html) { return html ? React.createElement('span', { dangerouslySetInnerHTML: { __html: html } }) : null; }
+link(html, ul) {
+const v = this.v(); if (!html || !v) return html;
+const LS = ul ? this.LINK_STYLE.replace('#E8704F', ul) : this.LINK_STYLE;
+const G = v.glossary, used = new Set(), out = [];
+for (const part of html.split(/(<[^>]+>)/)) {
+if (part.startsWith('<')) { out.push(part); continue; }
+let rest = part;
+while (rest) {
+let best = null; const low = rest.toLowerCase();
+for (const k in G) { if (used.has(k)) continue; for (const m of G[k].match) { const i = low.indexOf(m.toLowerCase()); if (i >= 0 && (!best || i < best.i || (i === best.i && m.length > best.len))) best = { i, k, len: m.length }; } }
+if (!best) { out.push(rest); break; }
+out.push(rest.slice(0, best.i), `<button type="button" data-term="${best.k}" aria-haspopup="dialog" style="${LS}">${rest.substr(best.i, best.len)}</button>`);
+used.add(best.k); rest = rest.slice(best.i + best.len);
+}
+}
+return out.join('');
+}
+richG(html) { return this.rich(this.link(html)); }
+onGloss(e) { const b = e.target && e.target.closest ? e.target.closest('[data-term]') : null; if (!b) return; e.preventDefault(); this.glossReturn = b; this.setState({ gloss: b.getAttribute('data-term') }); this.track('glossary_open', { term: b.getAttribute('data-term') }); }
+toastMsg(m) { this.setState({ toast: m }); clearTimeout(this.toastT); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2400); }
+top() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+setLang(lang) { try { localStorage.setItem('olti_lang', lang); } catch (e) {} this.setState({ lang }, () => { this.applyLang(); this.track('language_change'); }); }
+sceneType() { const s = this.state; return s.data ? (s.data.meta.sceneMap[s.step] || 'none') : 'none'; }
+quick() { return this.state.journey === 'quick'; }
+chooseId(id, fate) { this.setState({ ...this.INIT, id, fate, screen: 'story', step: 0, months: 0, reflected: {}, costs: [], sc: {}, flipped: {} }, () => { this.top(); this.track('role', { selected_id: id, fate: !!fate }); this.track('story_start'); }); }
+beginStory() { this.setState({ screen: 'story', step: 0, months: 0, delta: 0 }, () => { this.top(); this.track('story_start'); }); }
+doReset(toast) { this.stopAuto(); this.stopCd(); this.setState({ ...this.INIT, reflected: {}, costs: [], sc: {}, flipped: {}, howOpen: false }, () => { this.top(); if (toast) this.toastMsg(this.t().toast.reset); this.track('reset'); }); }
+sc(patch) { this.setState(s => ({ sc: { ...s.sc, ...patch } })); }
+pick(i, extra = {}) {
+if (this.state.picked != null) return;
+this.stopCd();
+const ch = this.t().chapters[this.state.step].choices[i];
+this.setState(s => ({ picked: i, hesitate: false, living: ch.living || s.living, costs: [...s.costs, { chapter: s.step, choice: i, months: s.months }], ...extra }), () => this.track('choice', { choice: i, expired: !!extra.expired }));
+}
+expire() { if (this.state.picked == null) this.pick(0, { expired: true }); }
+nextIndex(cur, raw) {
+if (raw === 'end') return 'end';
+if (!this.quick()) return raw;
+const q = this.state.v2.meta.quick; return q.find(i => i > cur) ?? 'end';
+}
+next() {
+const s = this.state, ch = this.t().chapters[s.step].choices[s.picked];
+const n = this.nextIndex(s.step, ch.next);
+if (n === 'end') return this.finish();
+if (this.quick()) { const m = this.t().chapters[n].year * 12; this.setState({ pending: n, months: m, delta: m - s.months }, () => this.arrive()); return; }
+this.setState({ screen: 'pass', pending: n, delta: 0, liveMsg: '' }, this.top);
+}
+target() { const s = this.state; return s.pending != null ? this.t().chapters[s.pending].year * 12 : s.months; }
+passStep() {
+const s = this.state, v = this.v(), target = this.target();
+if (s.screen !== 'pass') return;
+if (s.months >= target) return this.arrive();
+const add = Math.min(s.v2.meta.stepMonths, target - s.months), m = s.months + add, y = m / 12;
+const refl = Number.isInteger(y) && s.v2.meta.reflectAt.includes(y) && !s.reflected[y];
+const msg = v.timeline.plus.replace('[n]', add) + ' · ' + v.timeline.year.replace('[n]', Math.floor(y));
+this.setState({ months: m, delta: add, liveMsg: msg, ...(refl ? { screen: 'reflect', auto: false, reflectY: y, rpick: null } : {}) }, () => { if (refl) { this.top(); this.track('reflect_view', { year: y }); } else if (m >= target) this.arrive(); });
+}
+skipTime() {
+const s = this.state, target = this.target();
+const pend = s.v2.meta.reflectAt.find(y => y * 12 > s.months && y * 12 <= target && !s.reflected[y]);
+const m = pend != null ? pend * 12 : target;
+this.setState({ months: m, delta: m - s.months, auto: false, ...(pend != null ? { screen: 'reflect', reflectY: pend, rpick: null } : {}) }, () => { if (pend == null) this.arrive(); else this.top(); });
+this.track('time_skip');
+}
+arrive() { this.stopAuto(); this.setState(s => ({ screen: 'story', step: s.pending, pending: null, picked: null, sc: {}, auto: false, whyOpen: false, hesitate: false, expired: false, cd: null }), this.top); }
+endReflect() {
+const s = this.state, reflected = { ...s.reflected, [s.reflectY]: true };
+this.track('reflect_continue', { year: s.reflectY, answered: s.rpick != null });
+this.setState({ reflected }, () => { if (this.state.months >= this.target()) this.arrive(); else this.setState({ screen: 'pass' }, this.top); });
+}
+finish() {
+this.setState({ screen: 'summary', months: 144, sumSel: null }, this.top);
+this.track('story_complete', { choices: this.state.costs.length });
+if (this.mode() === 'kiosk') return;
+try {
+const rw = this.state.data.reward, b = JSON.parse(localStorage.getItem(rw.badgeStorage) || '[]');
+if (!b.includes(rw.badgeId)) { b.push(rw.badgeId); localStorage.setItem(rw.badgeStorage, JSON.stringify(b)); }
+const w = JSON.parse(localStorage.getItem(rw.progressStorage) || '[]'); if (!w.includes(rw.toolId)) { w.push(rw.toolId); localStorage.setItem(rw.progressStorage, JSON.stringify(w)); }
+} catch (e) {}
+}
+email() { this.track('email_action'); const m = this.t().mail; location.href = `mailto:?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(m.body)}`; }
+async share() {
+this.track('share'); const url = this.props.siteUrl || 'https://yplus.ps/TwoIDs/';
+try { if (navigator.share) { await navigator.share({ title: document.title, text: this.t().intro.lede, url }); return; } } catch (e) { return; }
+try { await navigator.clipboard.writeText(url); this.toastMsg(this.t().toast.copied); } catch (e) {}
+}
+buildScene(t, v, s) {
+const type = this.sceneType(), S = t.scenes, sc = s.sc, base = { title: S[type] ? S[type].title : '', hint: S[type] ? S[type].hint : '' };
+const on = { border: 'var(--primary)', bg: 'var(--primary)', fg: 'var(--onPrimary)' }, off = { border: 'var(--track)', bg: 'var(--surface)', fg: 'var(--ink)' };
+if (s.step === 0 || (this.quick() && !['housing', 'clock'].includes(type))) return { ...base, done: true, hidden: true };
+if (type === 'distance') { const pos = sc.pos ?? 0; return { ...base, isDistance: true, pos, done: pos >= 97, onSlide: e => this.sc({ pos: +e.target.value }) }; }
+if (type === 'calendar') { const picks = sc.days || [], done = picks.length >= 2; return { ...base, isCalendar: true, done, days: Array.from({ length: 14 }, (_, i) => { const n = i + 1, o = picks.includes(n); return { n, on: o, ...(o ? on : off), pick: () => { if (!done && !o) this.sc({ days: [...picks, n] }); } }; }) }; }
+if (type === 'housing') { const z = (i, key) => { const o = s.picked === i, dim = s.picked != null && !o; return { on: o, icon: o ? '⌂' : '○', bg: o ? 'var(--primary)' : 'var(--soft)', fg: o ? 'var(--onPrimary)' : 'var(--ink)', opacity: dim ? .4 : 1, pick: () => this.pick(i) }; }; return { ...base, isHousing: true, done: s.picked != null, locked: s.picked != null, zoneJ: z(0, 'j'), zoneW: z(1, 'w'), zoneA: z(2, 'a') }; }
+if (type === 'documents') { const got = sc.docs || [], items = S.documents.items, done = got.length >= items.length; return { ...base, isDocuments: true, done, docCount: `${got.length} / ${items.length}`, docs: items.map((text, i) => { const o = got.includes(i); return { text, on: o, mark: o ? '✓' : '+', ...(o ? on : off), pick: () => { if (!o) this.sc({ docs: [...got, i] }); } }; }) }; }
+if (type === 'form') { const got = sc.fields || [], f = S.form.fields, done = got.length >= f.length; return { ...base, isForm: true, done, fields: f.map(([label, val], i) => { const o = got.includes(i), last = i === f.length - 1; return { label, on: o, value: o ? val : '', fg: o && last ? 'var(--amber)' : 'var(--ink)', border: o ? 'var(--track)' : 'var(--line)', bg: o ? 'var(--surface)' : 'var(--bg)', line: o ? 'transparent' : 'var(--track)', pick: () => { if (!o) this.sc({ fields: [...got, i] }); } }; }) }; }
+if (type === 'clock') { const total = s.v2.meta.countdownSeconds, cd = s.picked != null ? (s.expired ? 0 : (s.cd ?? total)) : (s.cd ?? total); const blue = s.id === 'blue'; return { title: S.clock.title, hint: '', isCountdown: true, done: true, cd, ring: (301.6 * (1 - cd / total)).toFixed(1), text: blue ? v.countdown.textBlue : v.countdown.text, cdAnnounce: cd > 0 && cd <= 5 && s.picked == null ? `${cd} ${v.countdown.seconds}` : '' }; }
+if (type === 'timeline') { const past = s.costs, sel = sc.year ?? (past.length - 1), chOf = c => t.chapters[c.chapter]; return { ...base, isTimeline: true, done: true, years: past.map((c, i) => { const o = i === sel; return { n: chOf(c).year, on: o, ...(o ? on : off), pick: () => this.sc({ year: i }) }; }), memTitle: past[sel] ? chOf(past[sel]).title : '', memText: past[sel] ? chOf(past[sel]).choices[past[sel].choice].log : '' }; }
+return { ...base, done: true, hidden: true };
+}
+renderVals() {
+const s = this.state, t = this.t(), v = this.v(), data = s.data, isKiosk = this.mode() === 'kiosk', dark = this.isDark();
+const is = {}; ['intro', 'setup', 'story', 'pass', 'reflect', 'summary', 'remember'].forEach(k => is[k] = s.screen === k);
+const base = { dir: s.lang === 'ar' ? 'rtl' : 'ltr', lang: s.lang, is, isKiosk, isOnline: !isKiosk, brand: data ? data.meta.brand : 'YPlus · Communicating Palestine',
+themeIcon: dark ? '☀' : '☾', toggleTheme: () => this.toggleTheme(), isDarkLogo: dark, isLightLogo: !dark,
+langs: this.LANGS.map(([code, label]) => ({ label, active: s.lang === code, bg: s.lang === code ? 'var(--segOn)' : 'transparent', fg: s.lang === code ? 'var(--segOnFg)' : 'var(--muted)', pick: () => this.setLang(code) })),
+t: t || {}, v: v || {}, scene: {}, idCards: [], contact: data ? data.meta.contact : {}, social: data ? data.meta.contact.social.map(([name, url]) => ({ name, url })) : [], hasToast: !!s.toast, toast: s.toast, hasGloss: false, gloss: {} };
+if (!t || !v) return base;
+const blue = s.id === 'blue', isRtl = s.lang === 'ar';
+const chapter = t.chapters[s.step], ch = s.picked != null ? chapter.choices[s.picked] : null;
+const livingLabel = { apart: t.common.livingApart, jerusalem: t.common.livingJerusalem, westBank: t.common.livingWestBank }[s.living];
+const cons = ch ? (blue ? ch.consequenceBlue : ch.consequenceGreen) || ch.consequence : '';
+const src = data.sources, srcMap = [{ url: src.law }, { url: src.hamokedDelay }, { url: src.btselemResidency }];
+const factSrc = [src.law, src.btselemFamilies, src.law, src.law, src.hamokedChildren, src.btselemFamilies, src.btselemFamilies][s.step] || src.law;
+const factName = factSrc.includes('knesset') ? 'Knesset' : factSrc.includes('hamoked') ? 'HaMoked' : "B'Tselem";
+const scene = this.buildScene(t, v, s);
+const yr = Math.min(12, Math.floor(s.months / 12));
+const stageIdx = s.screen === 'summary' || s.screen === 'remember' ? 6 : s.step;
+const waitM = Math.max(0, s.months - s.v2.meta.waitFromMonth);
+const paperN = 1 + Math.floor(s.months / 6);
+const parAt = s.v2.meta.parallelAt, parIdx = parAt.reduce((a, at, i) => s.months >= at * 12 ? i : a, 0);
+const parallel = v.parallel.items.map((_, i) => ({ bg: i <= parIdx ? 'var(--grey)' : 'var(--bg)', size: i === parIdx ? '14px' : '10px' }));
+const stageName = i => v.timeline.stages[i] || '';
+const costYear = c => Math.floor((c.months ?? t.chapters[c.chapter].year * 12) / 12);
+const pathItems = s.costs.map(c => ({ year: `${t.common.year} ${costYear(c)}`, text: t.chapters[c.chapter].choices[c.choice].log }));
+const sumSel = s.sumSel ?? (s.costs.length - 1);
+const sumMarks = s.costs.map((c, i) => ({ left: (costYear(c) / 12 * 100) + '%', size: i === sumSel ? '18px' : '12px', bg: i === sumSel ? 'var(--navy)' : 'var(--surface)' }));
+const selC = s.costs[sumSel];
+const cardDefs = [['blue', '#2F6FD8', '#1E4FB8', 'linear-gradient(160deg,#2F6FD8,#1E4FB8)'], ['green', '#2F9E5B', '#1F7A44', 'linear-gradient(160deg,#2F9E5B,#1F7A44)']];
+const isFirst = s.step === 0;
+const firstOpts = [[v.q.a, v.q.aSub, 0], [v.q.b, v.q.bSub, 1]].map(([title, sub, k]) => {
+const active = (k === 0 && s.picked === 0) || (k === 1 && s.hesitate), dim = (s.picked != null && k === 1) || (s.hesitate && k === 0);
+return { title, sub, active, disabled: s.picked != null, arrow: active ? '✓' : (isRtl ? '←' : '→'), border: active ? 'var(--coral)' : 'var(--track)', bg: active ? 'var(--coralSoft)' : 'var(--surface)', fg: 'var(--ink)', opacity: dim ? .5 : 1,
+pick: () => { if (s.picked != null) return; if (k === 0) this.pick(0); else { this.setState({ hesitate: true }); this.track('hesitate'); } } };
+});
+const whyKey = String(s.step), hasWhy = !!v.whys[whyKey];
+const place = blue ? t.common.jerusalem : t.common.westBank;
+const autoLabel = s.auto ? v.auto.pause : v.auto.play;
+const showTimeline = is.story || is.pass || is.reflect;
+return { ...base, scene,
+themeLabel: dark ? v.ui.light : v.ui.dark,
+journeys: [['full', v.journey.full, v.journey.fullSub], ['quick', v.journey.quick, v.journey.quickSub]].map(([k, title, sub]) => ({ title, sub, on: s.journey === k, border: s.journey === k ? 'var(--coral)' : 'var(--track)', dot: s.journey === k ? 'var(--coral)' : 'transparent', pick: () => this.setState({ journey: k }) })),
+idCards: cardDefs.map(([k, solid, ink, bg]) => ({ chip: t.intro[k + 'Chip'], title: t.intro[k + 'Title'], desc: t.intro[k + 'Desc'], solid: ink, ink: dark ? '#9CC0FF' : ink, bg, transform: s.flipped[k] ? 'rotateY(180deg)' : 'rotateY(0deg)', back: t.scenes.back[k].map(([kk, vv]) => ({ k: kk, v: vv })), flip: () => this.setState(x => ({ flipped: { ...x.flipped, [k]: !x.flipped[k] } })), start: () => this.chooseId(k, false) })),
+fateStart: () => this.chooseId(Math.random() < .5 ? 'blue' : 'green', true),
+titleRich: this.rich(t.intro.title), contextRich: this.rich(t.intro.context), disclaimerRich: this.rich(t.end.disclaimer),
+howOpen: s.howOpen, howLabel: s.howOpen ? t.badge.howClose : t.intro.how, toggleHow: () => this.setState(x => ({ howOpen: !x.howOpen })), howSteps: t.how.steps.map((text, i) => ({ n: i + 1, text })),
+fateLine: s.fate ? v.fate.result.replace('[place]', v.fate.places[s.id]) : '', setupText: blue ? v.setup.textBlue : v.setup.text, beginStory: () => this.beginStory(),
+youBg: blue ? '#1E4FB8' : '#1F7A44', nourBg: blue ? '#1F7A44' : '#1E4FB8', youInk: blue ? (dark ? '#9CC0FF' : '#1E4FB8') : (dark ? '#7FD6A0' : '#1F7A44'), nourInk: blue ? (dark ? '#7FD6A0' : '#1F7A44') : (dark ? '#9CC0FF' : '#1E4FB8'),
+youPlace: place, nourPlace: blue ? t.common.westBank : t.common.jerusalem,
+showTimeline, months: s.months, monthsPct: (s.months / 144 * 100) + '%', yearOf: v.timeline.year.replace('[n]', yr), stageName: stageName(is.reflect || is.pass ? (s.pending ?? s.step) : stageIdx),
+stageDots: this.STAGE_YEARS.map((y, i) => { const done = s.months >= y * 12, now = i === (s.pending ?? s.step); return { left: (y / 12 * 100) + '%', bg: done ? 'var(--coral)' : 'var(--surface)', border: done ? 'var(--coral)' : 'var(--line)', glow: now ? '0 0 0 5px rgba(232,112,79,.25)' : 'none' }; }),
+yearPre: v.timeline.year.split('[n]')[0].trim(), yearN: String(yr), yearPost: (v.timeline.year.split('[n]')[1] || '').trim(),
+waitN: String(waitM), waitWord: v.timeline.waiting.replace('[n]', '').trim(), miniPapers: Array.from({ length: Math.min(6, paperN) }, (_, i) => ({ tf: `translate(${i * 2}px,${-i * 3}px) rotate(${(i % 2 ? 1 : -1) * i * 2}deg)` })), whySign: s.whyOpen ? '\u2212' : '+',
+deltaPop: s.delta > 0 && showTimeline ? React.createElement('span', { key: 'd' + s.months, 'aria-hidden': true, style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: 12, fontWeight: 600, color: 'var(--tealInk)', animation: 'olti-pop 1.6s ease-out both' } }, v.timeline.plus.replace('[n]', s.delta)) : null,
+hasWait: waitM > 0, waitLabel: v.timeline.waiting.replace('[n]', waitM),
+pathOpen: s.pathOpen, pathChevron: s.pathOpen ? 'rotate(180deg)' : 'rotate(0deg)', togglePath: () => this.setState(x => ({ pathOpen: !x.pathOpen })), pathItems, livingLabel, costCount: s.costs.length,
+chapter, yearNum: String(chapter.year).padStart(2, '0'), chapterCount: `${s.step + 1}/${t.chapters.length}`,
+onGloss: e => this.onGloss(e), storyRich: isFirst ? this.richG(blue ? v.setup.textBlue : v.setup.text) : this.richG(chapter.text),
+chipRich: isFirst ? v.setup.label : this.rich(this.link(stageName(s.step))), hasTitle: !isFirst, toolTitle: data.meta.tool,
+showScene: !scene.hidden,
+hasWhy, whyOpen: s.whyOpen, whyChevron: s.whyOpen ? 'rotate(180deg)' : 'rotate(0deg)', whyRich: hasWhy ? this.richG(v.whys[whyKey]) : null, toggleWhy: () => { if (!s.whyOpen) this.track('why_open'); this.setState(x => ({ whyOpen: !x.whyOpen })); },
+isFirst, firstOpts, showHesitate: isFirst && s.hesitate && s.picked == null, hItems: v.q.hItems.map(h => ({ rich: this.richG(h) })), acceptA: () => this.pick(0),
+choicesVisible: !isFirst && !!scene.done && !scene.isHousing,
+choices: chapter.choices.map((c, i) => { const active = s.picked === i, dim = s.picked != null && !active; return { text: c.text, pick: () => this.pick(i), disabled: s.picked != null, active, arrow: active ? '✓' : (isRtl ? '←' : '→'), border: active ? 'var(--coral)' : 'var(--track)', bg: active ? 'var(--coralSoft)' : 'var(--surface)', fg: 'var(--ink)', opacity: dim ? .5 : 1 }; }),
+hasPicked: ch != null, pickedLog: ch ? ch.log : '', consRich: this.richG(cons), hasFact: !!(ch && ch.fact), factRich: ch ? this.richG(ch.fact) : null, factSourceUrl: factSrc, factSourceName: factName,
+expired: !!s.expired, expiredText: blue ? v.countdown.expiredBlue : v.countdown.expired,
+sourceCheckedLabel: `${({ en: 'Sources checked', it: 'Fonti verificate il', fr: 'Sources vérifiées le', ar: 'تم التحقق من المصادر في' })[s.lang]} ${data.meta.sourceChecked}`,
+next: () => this.next(), nextLabel: ch && this.nextIndex(s.step, ch.next) === 'end' ? t.common.finish : t.common.continue,
+showParallel: is.story,
+stageRich: this.rich(this.link(stageName(is.reflect || is.pass ? (s.pending ?? s.step) : stageIdx))), parallel, parallelNow: v.parallel.items[parIdx],
+bigNum: waitM > 0 ? String(waitM) : String(yr), bigLabel: waitM > 0 ? v.timeline.waiting.replace('[n]', '').trim() : v.timeline.year.replace('[n]', yr), bigColor: waitM > 0 ? 'var(--amber)' : 'var(--navy)',
+paperLabel: v.timeline.paper.replace('[n]', paperN), papers: Array.from({ length: Math.min(12, paperN) }, (_, i) => ({ b: (i * 3) + 'px', r: ((i % 3) - 1) * 2.5 + 'deg' })),
+auto: s.auto, autoLabel, toggleAuto: () => { this.track(s.auto ? 'time_pause' : 'time_autoplay'); this.setState({ auto: !s.auto }, () => { if (this.state.auto) this.passStep(); }); },
+stepTime: () => { this.setState({ auto: false }); this.passStep(); }, skipTime: () => this.skipTime(), liveMsg: s.liveMsg,
+reflectYear: String(s.reflectY ?? 0).padStart(2, '0'), reflectQ: s.reflectY != null ? v.reflect[String(s.reflectY)].q : '',
+reflectOpts: s.reflectY != null ? v.reflect[String(s.reflectY)].opts.map((text, i) => { const o = s.rpick === i; return { text, on: o, border: o ? 'var(--coral)' : 'var(--track)', bg: o ? 'var(--coralSoft)' : 'var(--surface)', fg: 'var(--ink)', pick: () => this.setState({ rpick: i }) }; }) : [],
+endReflect: () => this.endReflect(),
+sumMarks, sumSelLeft: selC ? (costYear(selC) / 12 * 100) + '%' : '0%', sumSelYear: selC ? `${t.common.year} ${costYear(selC)}` : '',
+sumItems: s.costs.map((c, i) => { const o = i === sumSel; return { year: `${t.common.year} ${costYear(c)}`, stage: stageName(c.chapter), text: t.chapters[c.chapter].choices[c.choice].log, on: o, border: o ? 'var(--coral)' : 'var(--line)', bg: o ? 'var(--soft)' : 'var(--surface)', pick: () => this.setState({ sumSel: i }) }; }),
+toRemember: () => { this.setState({ screen: 'remember' }, this.top); this.track('remember_view'); }, toSummary: () => this.setState({ screen: 'summary' }, this.top),
+remItems: v.remember.items.map((text, i) => ({ n: i + 1, text })), backArrow: isRtl ? '→' : '←',
+playAgain: () => this.doReset(false), resetToast: () => this.doReset(true),
+confirmReset: () => { if (s.costs.length === 0 || window.confirm(t.badge.confirmReset)) this.doReset(false); },
+email: () => this.email(), share: () => this.share(),
+realStories: t.realStories.items.map(i => ({ ...i, url: src[i.url], tag: t.common.documented })),
+sourceItems: t.sources.items.map((text, i) => ({ text, url: srcMap[i].url })),
+hasGloss: !!s.gloss, gloss: s.gloss ? v.glossary[s.gloss] : {}, closeGloss: () => this.setState({ gloss: null }), glossCloseRef: this.glossCloseRef };
+}
 }
 </script>
 </body>
